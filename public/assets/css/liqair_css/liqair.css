@@ -1,0 +1,285 @@
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
+
+.carousel .carousel-item {
+    height: 600px;
+}
+  
+.carousel-item img {
+    position: absolute;
+    object-fit:cover;
+    top: 0;
+    left: 0;
+    min-height: 600px;
+}
+
+.liqair-color {
+    color: #ffdd17;
+}
+
+.liqair-color-impose {
+    color: #ffdd17 !important;
+}
+
+.liqair-social-icon {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.liqair-social-icon:hover {
+    transition: filter .3s ease-in-out;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.liqair-social-icon-zoom {
+    transition: transform .2s ease-in-out;
+}
+
+.liqair-social-icon-zoom:hover {
+    transform: scale(2) rotate(25deg);
+}
+
+.liqair-border-image-top {
+    width: 100%;
+    background-color: transparent !important;
+    background-image: url(../../img/borders/top_border.png);
+    background-size: 70%, 100%;
+    background-repeat: repeat-x;
+}
+
+.liqair-border-image-mid-top{
+    height: 9vh;
+    width: 100%;
+    background-color: transparent !important;
+    background-image: url(../../img/borders/mid_border_top.png);
+    background-size: 70%, 100%;
+    background-repeat: repeat-x;
+}
+
+.liqair-border-image-mid-bottom{
+    height: 9vh;
+    width: 100%;
+    background-color: transparent !important;
+    background-image: url(../../img/borders/mid_border_bottom.png);
+    background-size: 70%, 100%;
+    background-repeat: repeat-x;
+}
+
+.liqair-border-image-bottom {
+    /* height: 15vh; */
+    width: 100%;
+    background-color: transparent !important;
+    background-image: url(../../img/borders/bottom_border.png);
+    background-size: cover;
+    background-repeat: repeat-x;
+}
+
+#mediaPlayer{
+	position: relative;
+	height: auto;
+	padding-bottom: 56.25%;
+	padding-top: 1.875em; 
+	overflow: hidden;
+	border: 0.1875em double rgb(44, 44, 44); 
+	background-image:url('../../img/spinners/liqair-loader-small.gif'); 
+	background-repeat: no-repeat;
+	background-size:60px 60px;
+	-webkit-background-size: 60px 60px;
+	-moz-background-size: 60px 60px;
+	-o-background-size: 60px 60px;
+	background-position: center;
+	background-attachment: fixed;
+}
+#mediaPlayer iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.btn-liqair {
+    padding: 4px 29px;
+    border: 0px solid #b29927;
+    border-radius: 100px;
+    background: #b29927;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b29927), to(#b29927));
+    background: -moz-linear-gradient(top, #b29927, #b29927);
+    background: linear-gradient(to bottom, #b29927, #b29927);
+    color: #111111;
+    text-decoration: none;
+}
+.btn-liqair:hover,
+.btn-liqair:focus,
+.btn-liqair:active {
+    background: #ffdd17;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffdd17), to(#ffdd17));
+    background: -moz-linear-gradient(top, #ffdd17, #ffdd17);
+    background: linear-gradient(to bottom, #ffdd17, #ffdd17);
+    cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip-body .tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color:rgb(44, 44, 44);
+    color: #fff;
+    text-align: center;
+    padding: 5px 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    transition: ease-out;
+    transition-delay: 0s;
+    transition-property: visibility;
+}
+
+/* Show the tooltip text when you move mouse over the tooltip container */
+.tooltip-body:hover .tooltip-text {
+    visibility: visible;
+    transition: ease-in;
+    transition-delay: 1s;
+    transition-property: visibility;
+}
+
+/* Position the tooltip text - see examples below! */
+.tooltip-right {
+    top: -5px;
+    left: 105%;
+}
+
+.tooltip-left {
+    top: 25px;
+    right: 70%;
+}
+
+.tooltip-top {
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip-bottom {
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.tooltip-center {
+    width: 120px;
+    top: 25%;
+    left: 25%;
+    margin-left: -30px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.clickable {
+    cursor:pointer;
+}
+
+.opacity-100 {
+    opacity: 1.0;
+}
+
+.opacity-80 {
+    opacity: 8.0;
+}
+
+.opacity-60 {
+    opacity: 6.0;
+}
+
+.opacity-40 {
+    opacity: 4.0;
+}
+
+.opacity-20 {
+    opacity: 2.0;
+}
+
+/* Checkboxes styles */
+.liqair .checkbox-container {
+    border: solid 2px #ffdd17;
+    border-radius: 2%;
+}
+
+.liqair input[type="checkbox"] { display: none; }
+
+.liqair input[type="checkbox"] + label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 20px;
+    font: 14px/20px 'Open Sans', Arial, sans-serif;
+    color:rgb(102, 102, 102);
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.liqair input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+.liqair input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ffdd17;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: .6;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+
+.liqair input[type="checkbox"]:checked + label:before {
+    width: 10px;
+    top: -5px;
+    left: 5px;
+    border-radius: 0;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* The Close Button */
+.btn-liqair-modal-close {
+    display:block;
+    float: right;
+    width:50px;
+    height:50px;
+    background-color: transparent;
+    border-radius: 90%;
+    border: solid 1px #ffdd17;
+    color: #ffdd17;
+    transition: transform .3s ease-in-out;
+    outline: none;
+}
+
+.btn-liqair-modal-close:hover,
+.btn-liqair-modal-close:focus {
+    font-size: large;
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    transform: scale(1) rotate(180deg);
+    outline: none;
+}

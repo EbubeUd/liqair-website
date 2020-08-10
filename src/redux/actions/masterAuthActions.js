@@ -14,7 +14,6 @@ export const loginUserAction = (payLoad) => {
         })
         .catch((error) => {
             handler(error);
-            // console.log(error);
         });
     }
 }
@@ -36,7 +35,6 @@ export const registerUserAction = (payLoad,redirectToLogin) => {
         })
         .catch((error) => {
             handler(error);
-            // console.log(error);
         });
     }
 }
