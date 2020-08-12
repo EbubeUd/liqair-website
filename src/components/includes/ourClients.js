@@ -36,7 +36,7 @@ export class OurClients extends Component {
 
     render() {
         return (
-            <div className="container my-5 bg-dark">
+            <div className="container my-5">
                 <div className="mb-5 text-center">
                     <h2>OUR CLIENTS</h2>
                 </div>

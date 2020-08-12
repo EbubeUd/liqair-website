@@ -43,7 +43,7 @@ export class CompanyServices extends Component {
 
     render() {
         return (
-            <div className="col-12 bg-dark">
+            <div className="col-12">
                 <div className="row">
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
