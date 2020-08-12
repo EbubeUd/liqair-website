@@ -19,7 +19,7 @@ export class TopNavBar extends Component {
                         </li>
                         <li className="nav-item">
                             <Link to="/" className="nav-item px-3 mx-5">
-                                <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={50} height={50} className="d-inline-block align-top rounded" alt="logo" loading="lazy" />
+                                <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="d-inline-block align-top" alt="logo" loading="lazy" />
                             </Link>
                         </li>
                         <li className="nav-item">

@@ -26,8 +26,16 @@
     color: #ffdd17;
 }
 
-.liqair-color-impose {
-    color: #ffdd17 !important;
+.liqair-bg-color {
+    color: #ffdd17;
+}
+
+.liqair-off-color {
+    color: #333;
+}
+
+.liqair-bg-off-color {
+    background-color: #333;
 }
 
 .liqair-social-icon {
@@ -300,4 +308,32 @@
     -o-filter: grayscale(100%);
     -ms-filter: grayscale(100%);
     filter: grayscale(100%);
+}
+
+.liqair-input {
+    background-color: transparent;
+    border-color: #ffdd17;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+}
+
+.liqair-input:focus {
+    background-color: transparent;
+    border-color: #ffdd17;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+}
+
+.liqair-textarea {
+    background-color: transparent;
+    border-color: #ffdd17;
+}
+
+.liqair-textarea:focus {
+    background-color: transparent;
+    border-color: #ffdd17;
 }

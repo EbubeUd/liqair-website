@@ -9,6 +9,7 @@ import OurClients from '../includes/ourClients';
 import ContactCompany from '../includes/contactCompany';
 import BorderBottom from '../includes/borderBottom';
 import Social from '../includes/social';
+import Divider from '../includes/divider';
 
 export class Landing extends Component {
     render() {
@@ -38,6 +39,7 @@ export class Landing extends Component {
                     </div>
                 <MidBorderBottom />
                 <OurClients />
+                <Divider />
                 <ContactCompany />
                 <BorderBottom />
                 <Social />

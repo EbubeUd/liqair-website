@@ -25,7 +25,7 @@ export class OurClients extends Component {
             data.map((item,key)=>{
                 return (
                     <SplideSlide key={key}>
-                        <div className="card justify-content-center bg-transparent border-0" style={{width: '9rem'}}>
+                        <div className="card justify-content-center bg-transparent border-0 liqair-client-gray-out" style={{width: '9rem'}}>
                             <img className="card-img-top" src={item.image_url} alt={'client '+key} />
                         </div>
                     </SplideSlide>

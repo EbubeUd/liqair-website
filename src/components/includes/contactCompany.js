@@ -86,30 +86,30 @@ export class ContactCompany extends Component {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="col-md-12 mb-2">
-                                <input type="text" className={'form-control '+validationFeedback.username} name="username" placeholder="Name" 
+                                <input type="text" className={'form-control liqair-input'+validationFeedback.username} name="username" placeholder="Name" 
                                 value={this.state.username} onChange={this.onChange} required />
                             </div>
                             <div className="col-md-12 mb-2">
-                                <input type="email" className={'form-control '+validationFeedback.email} name="email" placeholder="Email Address" 
+                                <input type="email" className={'form-control liqair-input'+validationFeedback.email} name="email" placeholder="Email Address" 
                                 value={this.state.email} onChange={this.onChange} required />
                             </div>
                             <div className="col-md-12 mb-2">
-                                <input type="phone" className={'form-control '+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
+                                <input type="phone" className={'form-control liqair-input'+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
                                 value={this.state.phone} onChange={this.onChange}/>
                             </div>
                             <div className="col-md-12 mb-2">
-                                <input type="text" className={'form-control '+validationFeedback.subject} name="subject" placeholder="Subject" 
+                                <input type="text" className={'form-control liqair-input'+validationFeedback.subject} name="subject" placeholder="Subject" 
                                 value={this.state.subject} onChange={this.onChange} required />
                             </div>
                         </div>
                         <div className="col-md-6">
-                            <div className="col-md-12 mb-2">
-                                <textarea type="text" className={'form-control '+validationFeedback.message} name="message" placeholder="Message" 
-                                value={this.state.message} onChange={this.onChange} rows="6" required></textarea>
+                            <div className="col-md-12 mb-2 mt-3">
+                                <textarea type="text" className={'form-control liqair-textarea'+validationFeedback.message} name="message" placeholder="Message" 
+                                value={this.state.message} onChange={this.onChange} rows="7" required></textarea>
                             </div>
                         </div>
                     </div>
-                    <div className="modal-footer border-top-0">
+                    <div className="modal-footer border-top-0 mt-5">
                         <div className="col-12 text-center">
                             <button type="submit" className="btn btn-liqair">Send Us A Message</button>
                         </div>

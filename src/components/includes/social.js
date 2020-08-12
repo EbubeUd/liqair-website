@@ -2,7 +2,7 @@ import React from 'react';
 
 function social() {
     return (
-        <div className="d-flex flex-row justify-content-around" style={{borderWidth: '0px', borderColor: 'black'}}>
+        <div className="d-flex flex-row justify-content-around">
             <div className="row">
                 <div className="col-md-5">
                     <p className="block text-center">Say <span className="liqair-color"> Hello, Yo, How far </span> or <span className="liqair-color"> Whatever</span> !?</p>
@@ -14,7 +14,7 @@ function social() {
                 <div className="col-md-7">
                     <div className="mt-5 mt-md-0 mt-lg-0">
                         <div className="text-center pb-3 mb-2">
-                            <span className="liqair-color">Want to stay updated? </span><span className="text-light"> Find us here:</span>
+                            <span className="liqair-color">Want to stay updated? </span> Find us here:
                         </div>
                         <div className="d-flex flex-wrap justify-content-center py-3">
                             <div className="d-flex flex-wrap justify-content-center">
