@@ -1,9 +1,9 @@
 import React from 'react';
 
-function borderTop() {
+function midBorderTop() {
     return (
         <div className="mt-5 liqair-border-image-mid-top"></div>
     )
 }
 
-export default borderTop;
+export default midBorderTop;

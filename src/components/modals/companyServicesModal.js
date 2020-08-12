@@ -101,15 +101,15 @@ export class CompanyServicesModal extends Component {
                                             value={this.state.username} onChange={this.onChange} required />
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="email" className={'form-control '+validationFeedback.email} name="email" placeholder="mark@gmail.com" 
+                                            <input type="email" className={'form-control '+validationFeedback.email} name="email" placeholder="Email Address" 
                                             value={this.state.email} onChange={this.onChange} required />
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="phone" className={'form-control '+validationFeedback.phone} name="phone" placeholder="08012345678" 
+                                            <input type="phone" className={'form-control '+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
                                             value={this.state.phone} onChange={this.onChange}/>
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="text" className={'form-control '+validationFeedback.message} name="message" placeholder="I would like to..." 
+                                            <input type="text" className={'form-control '+validationFeedback.message} name="message" placeholder="Message..." 
                                             value={this.state.message} onChange={this.onChange} required />
                                         </div>
                                     </div>

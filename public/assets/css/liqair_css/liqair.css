@@ -76,7 +76,7 @@
 }
 
 .liqair-border-image-bottom {
-    /* height: 15vh; */
+    height: 15vh;
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/bottom_border.png);
@@ -282,4 +282,22 @@
     cursor: pointer;
     transform: scale(1) rotate(180deg);
     outline: none;
+}
+
+.liqair-mail-us {
+    display: block;
+    text-align: center;
+    color: gray;
+}
+
+.liqair-mail-us:hover {
+    color: #ffdd17 !important;
+}
+
+.liqair-client-gray-out {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
