@@ -86,7 +86,7 @@ export class CompanyServicesModal extends Component {
         return (
             <div id="companyServicesModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="gridModalLabel" style={{display: 'none'}} aria-hidden="true">
                 <div className="modal-dialog modal-lg" role="document">
-                    <form onSubmit={this.onSubmit} className="modal-content">
+                    <form onSubmit={this.onSubmit} className="modal-content liqair-bg-off-color">
                         <div className="modal-header border-bottom-0">
                             <div className="col-12">
                                 <button type="button" className="btn-liqair-modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
@@ -97,19 +97,19 @@ export class CompanyServicesModal extends Component {
                                 <div className="row">
                                     <div className="col-md-6 order-2 order-md-1 mt-md-4">
                                         <div className="col-md-12 mb-2">
-                                            <input type="text" className={'form-control '+validationFeedback.username} name="username" placeholder="Name" 
+                                            <input type="text" className={'form-control liqair-input'+validationFeedback.username} name="username" placeholder="Name" 
                                             value={this.state.username} onChange={this.onChange} required />
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="email" className={'form-control '+validationFeedback.email} name="email" placeholder="Email Address" 
+                                            <input type="email" className={'form-control liqair-input'+validationFeedback.email} name="email" placeholder="Email Address" 
                                             value={this.state.email} onChange={this.onChange} required />
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="phone" className={'form-control '+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
+                                            <input type="phone" className={'form-control liqair-input'+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
                                             value={this.state.phone} onChange={this.onChange}/>
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="text" className={'form-control '+validationFeedback.message} name="message" placeholder="Message..." 
+                                            <input type="text" className={'form-control liqair-input'+validationFeedback.message} name="message" placeholder="Message..." 
                                             value={this.state.message} onChange={this.onChange} required />
                                         </div>
                                     </div>

@@ -16,6 +16,7 @@ export class Landing extends Component {
         return (
             <div>
                 <Carousel />
+                <span id="home"></span>
                 <Caption />
                 <MidBorderTop />
                     <div className="text-center">
@@ -23,6 +24,7 @@ export class Landing extends Component {
                         <h6>This may blow your mind, view at your own risk.</h6>
                     </div>
                 <MidBorderBottom />
+                <span id="works"></span>
                 <MediaPlayer />
                 <MidBorderTop />
                     <div className="text-center">
@@ -31,6 +33,7 @@ export class Landing extends Component {
                         <p>We hope we can work together.</p>
                     </div>
                 <MidBorderBottom />
+                <span id="services"></span>
                 <CompanyServices />
                 <MidBorderTop />
                     <div className="text-center">
@@ -38,6 +41,7 @@ export class Landing extends Component {
                         <h6>Don't take our word for it, ask our clients.</h6>
                     </div>
                 <MidBorderBottom />
+                <span id="clients"></span>
                 <OurClients />
                 <Divider />
                 <ContactCompany />
