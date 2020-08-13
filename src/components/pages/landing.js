@@ -19,7 +19,7 @@ export class Landing extends Component {
                 <span id="home"></span>
                 <Caption />
                 <MidBorderTop />
-                    <div className="text-center">
+                    <div className="container text-center">
                         <h4>Disclaimer</h4>
                         <h6>This may blow your mind, view at your own risk.</h6>
                     </div>
@@ -27,7 +27,7 @@ export class Landing extends Component {
                 <span id="works"></span>
                 <MediaPlayer />
                 <MidBorderTop />
-                    <div className="text-center">
+                    <div className="container text-center">
                         <p>Wow, you came this far. You must be one COOL customer. If you would like us to move your business/brand forward,</p>
                         <p>click the icon of the service(s) you need below to select them, and then click the “Ask us” button to start a conversation with our team.</p>
                         <p>We hope we can work together.</p>
@@ -36,7 +36,7 @@ export class Landing extends Component {
                 <span id="services"></span>
                 <CompanyServices />
                 <MidBorderTop />
-                    <div className="text-center">
+                    <div className="container text-center">
                         <h4>Affirmation</h4>
                         <h6>Don't take our word for it, ask our clients.</h6>
                     </div>

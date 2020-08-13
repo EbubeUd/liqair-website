@@ -10,6 +10,7 @@ import Missing from '../pages/missing';
 import Footer from '../includes/footer';
 import TopNavBar from '../navigation/topNavBar';
 import AppStatusModal from '../includes/appStatusModal';
+import ScrollToTop from '../buttons/scrollToTop';
 
 
 export class App extends Component {
@@ -40,6 +41,7 @@ export class App extends Component {
             {/* Not found page */}
             <Route path="*" component={Missing} />
           </Switch>
+          <ScrollToTop />
           <Footer />
         </Router>
       </Provider>
