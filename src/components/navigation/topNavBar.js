@@ -2,13 +2,26 @@ import React, { Component } from 'react';
 
 export class TopNavBar extends Component {
 
+    unCollapseNav = () => {
+        let nav = document.getElementById('navbarTogglerDemo01');
+        let navChild = nav.firstChild
+
+        if (nav.classList.contains("bg-dark")) {
+            nav.classList.remove("bg-dark");
+            navChild.classList.remove("mt-5");
+        } else {
+            nav.classList.add("bg-dark");
+            navChild.classList.add("mt-5");
+        }
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top liqair-border-image-top">
                 <a className="navbar-brand d-block d-md-none" href="/">
                     <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                 </a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <button onClick={this.unCollapseNav} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">

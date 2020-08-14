@@ -327,7 +327,7 @@
     border-right: 0;
     border-top: 0;
     border-radius: 0;
-    outline: #ffdd17 !important;
+    box-shadow: none;
 }
 
 .liqair-textarea {
@@ -338,4 +338,11 @@
 .liqair-textarea:focus {
     background-color: transparent;
     border-color: #ffdd17;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
 }
