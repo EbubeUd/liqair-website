@@ -3,12 +3,12 @@ import ChaseAnimation from '../animations/chaseAnimation';
 
 function missing() {
     return (
-        <div>
+        <div style={{height:'45vh'}}>
             <div style={{textAlign:'center', marginTop:'20%'}}>
                 <div style={{marginLeft:'47%'}}>
-                    <ChaseAnimation />
+                    <ChaseAnimation style={{backgroundColor:'#FFF'}} />
                 </div>
-                <h1>Page Not Found</h1>
+                <h1>Page Not Found !</h1>
             </div>
         </div>
     )

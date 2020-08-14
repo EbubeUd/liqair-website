@@ -10,10 +10,13 @@ import ContactCompany from '../includes/contactCompany';
 import BorderBottom from '../includes/borderBottom';
 import Social from '../includes/social';
 import Divider from '../includes/divider';
+import PrePageLoader from '../loaders/prePageLoader';
 
 export class Landing extends Component {
     render() {
         return (
+            <React.Fragment>
+            <PrePageLoader />
             <div>
                 <Carousel />
                 <span id="home"></span>
@@ -48,6 +51,7 @@ export class Landing extends Component {
                 <BorderBottom />
                 <Social />
             </div>
+            </React.Fragment>
         )
     }
 }
