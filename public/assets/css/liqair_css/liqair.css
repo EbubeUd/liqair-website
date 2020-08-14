@@ -57,38 +57,30 @@
     transform: scale(2) rotate(25deg);
 }
 
-/* .liqair-border-image-top {
+.liqair-border-image-top {
+    height: 15vh;
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/top_border.png);
-    background-size: 70%, 100%;
+    background-size: cover;
     background-repeat: repeat-x;
-} */
-
-/* .liqair-border-image-top {
-    height: 15vh;
-    width: 100%;
-    background-color: #333 !important;
-    background-image: url(../../img/borders/top_border.png);
-    background-size: 70%, 100%;
-    background-repeat: repeat-x;
-} */
+}
 
 .liqair-border-image-mid-top{
-    height: 9vh;
+    height: 15vh;
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/mid_border_top.png);
-    background-size: 70%, 100%;
+    background-size: cover;
     background-repeat: repeat-x;
 }
 
 .liqair-border-image-mid-bottom{
-    height: 9vh;
+    height: 15vh;
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/mid_border_bottom.png);
-    background-size: 70%, 100%;
+    background-size: cover;
     background-repeat: repeat-x;
 }
 

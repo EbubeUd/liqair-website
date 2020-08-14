@@ -4,7 +4,7 @@ export class TopNavBar extends Component {
 
     render() {
         return (
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top liqair-border-image-top">
                 <a className="navbar-brand d-block d-md-none" href="/">
                     <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                 </a>
