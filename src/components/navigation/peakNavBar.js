@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class TopNavBar extends Component {
+export class PeakNavBar extends Component {
 
     unCollapseNav = () => {
         let togglerIcon = document.getElementById('navbar-toggler-icon');
@@ -18,10 +18,15 @@ export class TopNavBar extends Component {
         }
     }
 
+    logout = (e) => {
+        e.preventDefault();
+        console.log('logged out');
+    }
+
     render() {
         return (
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top liqair-border-image-top">
-                <a className="navbar-brand d-block d-md-none" href="/">
+            <nav className="navbar navbar-expand-md navbar-default bg-default fixed-top liqair-bg-off-color">
+                <a className="navbar-brand d-block" href="/">
                     <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                 </a>
                 <button onClick={this.unCollapseNav} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,28 +35,29 @@ export class TopNavBar extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul className="navbar-nav mt-2 mt-lg-0">
-                        <li className="nav-item">
-                            <a href="/#home" className="nav-link mx-3"><span className="liqair-color">Home</span></a>
+                        <li className="nav-item d-block d-md-inline-flex">
+                            <a href="/" className="nav-link"><span className="liqair-color">Home</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#works" className="nav-link mx-3"><span className="liqair-color">Works</span></a>
+                        <li className="nav-item d-block d-md-inline-flex">
+                            <a href="/admin/dashboard#carousel" className="nav-link"><span className="liqair-color">Carousel</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/" className="d-none d-md-block px-3 mx-5">
-                                <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
-                            </a>
+                        <li className="nav-item d-block d-md-inline-flex">
+                            <a href="/admin/dashboard#videos" className="nav-link"><span className="liqair-color">Videos</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#services" className="nav-link mx-3"><span className="liqair-color">Services</span></a>
+                        <li className="nav-item d-block d-md-inline-flex">
+                            <a href="/admin/dashboard#clients" className="nav-link"><span className="liqair-color">Clients</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#clients" className="nav-link mx-3"><span className="liqair-color">Clients</span></a>
+                        <li className="nav-item d-block d-md-inline-flex">
+                            <a href="/admin/dashboard#messages" className="nav-link"><span className="liqair-color">Messages</span></a>
                         </li>
                     </ul>
+                    <form onClick={this.logout} className="form-inline my-2 my-lg-0 justify-content-center">
+                        <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Logout</button>
+                    </form>
                 </div>
             </nav>
         )
     }
 }
 
-export default TopNavBar;
+export default PeakNavBar;

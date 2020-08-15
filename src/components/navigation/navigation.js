@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TopNavBar from './topNavBar';
-import SideNavBar from './sideNavBar';
+import PeakNavBar from './peakNavBar';
 
 const RenderNavBar = withRouter((props) => { 
-    return props.isAdminPath(props.location.pathname) && props.isAdmin()? <SideNavBar /> : <TopNavBar />
+    return props.isAdminPath(props.location.pathname) && props.isAdmin()? <PeakNavBar /> : <TopNavBar />
 });
 
 export class Navigation extends Component {
