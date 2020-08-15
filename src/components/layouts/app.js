@@ -12,6 +12,11 @@ import Navigation from '../navigation/navigation';
 import AppStatusModal from '../includes/appStatusModal';
 import ScrollToTop from '../buttons/scrollToTop';
 import Dashboard from '../pages/dashboard';
+import Login from '../pages/login';
+import Register from '../pages/register';
+import ForgotPassword from '../pages/forgotPassword';
+import ResetPassword from '../pages/resetPassword';
+import VerifyEmail from '../pages/verifyEmail';
 
 
 export class App extends Component {
@@ -38,6 +43,21 @@ export class App extends Component {
           <Switch>
             {/* Landing page*/}
             <Route exact path="/" component={Landing} />
+
+            {/* Landing page*/}
+            <Route exact path="/admin/login" component={Login} />
+
+            {/* Landing page*/}
+            <Route exact path="/admin/register" component={Register} />
+
+            {/* Landing page*/}
+            <Route exact path="/admin/forgot" component={ForgotPassword} />
+
+            {/* Landing page*/}
+            <Route exact path="/admin/reset" component={ResetPassword} />
+
+            {/* Landing page*/}
+            <Route exact path="/admin/verify" component={VerifyEmail} />
 
             {/* Dashboard page*/}
             <Route exact path="/admin/dashboard" component={Dashboard} />
