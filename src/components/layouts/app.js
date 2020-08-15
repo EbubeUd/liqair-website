@@ -8,9 +8,10 @@ import Alerts from '../includes/alerts';
 import Landing from '../pages/landing';
 import Missing from '../pages/missing';
 import Footer from '../includes/footer';
-import TopNavBar from '../navigation/topNavBar';
+import Navigation from '../navigation/navigation';
 import AppStatusModal from '../includes/appStatusModal';
 import ScrollToTop from '../buttons/scrollToTop';
+import Dashboard from '../pages/dashboard';
 
 
 export class App extends Component {
@@ -32,11 +33,14 @@ export class App extends Component {
       <Provider store={storeInstance()}>
         <Router>
           <Alerts />
-          <TopNavBar />
+          <Navigation />
           <AppStatusModal />
           <Switch>
             {/* Landing page*/}
             <Route exact path="/" component={Landing} />
+
+            {/* Dashboard page*/}
+            <Route exact path="/admin/dashboard" component={Dashboard} />
 
             {/* Not found page */}
             <Route path="*" component={Missing} />
