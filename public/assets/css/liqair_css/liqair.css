@@ -38,6 +38,16 @@
     background-color: #333;
 }
 
+.liqair-hover {
+    color: #333;
+    filter: brightness(150%);
+}
+
+.liqair-hover:hover {
+    color: #ffdd17;
+    filter: brightness(110%);
+}
+
 .liqair-social-icon {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
@@ -109,6 +119,7 @@
 	background-position: center;
 	background-attachment: fixed;
 }
+
 #mediaPlayer iframe{
 	position: absolute;
 	top: 0;

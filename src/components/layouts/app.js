@@ -44,23 +44,26 @@ export class App extends Component {
             {/* Landing page*/}
             <Route exact path="/" component={Landing} />
 
-            {/* Landing page*/}
+            {/* Login page*/}
             <Route exact path="/admin/login" component={Login} />
 
-            {/* Landing page*/}
+            {/* Register page*/}
             <Route exact path="/admin/register" component={Register} />
 
-            {/* Landing page*/}
+            {/* Forgot password page*/}
             <Route exact path="/admin/forgot" component={ForgotPassword} />
 
-            {/* Landing page*/}
+            {/* Reset password page*/}
             <Route exact path="/admin/reset" component={ResetPassword} />
 
-            {/* Landing page*/}
+            {/* Verify email page*/}
             <Route exact path="/admin/verify" component={VerifyEmail} />
 
             {/* Dashboard page*/}
             <Route exact path="/admin/dashboard" component={Dashboard} />
+
+            {/* Admin page*/}
+            <Route exact path="/admin" component={Login} />
 
             {/* Not found page */}
             <Route path="*" component={Missing} />
