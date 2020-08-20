@@ -37,10 +37,6 @@ export class CompanyServices extends Component {
         }
     }
 
-    modalControl = () =>{
-
-    }
-
     render() {
         return (
             <div className="col-12">
@@ -113,7 +109,7 @@ export class CompanyServices extends Component {
                     </div>
                 </div>
                 <div className="col-lg-12 col-md-12 my-5 text-center">
-                    <span className="btn btn-liqair" onClick={()=>this.modalControl()} data-toggle="modal" data-target="#companyServicesModal">Ask For Cost !!</span>
+                    <span className="btn btn-liqair" data-toggle="modal" data-target="#companyServicesModal">Ask For Cost !!</span>
                 </div>
                 <CompanyServicesModal checkCompanyService={this.checkCompanyService} companyServices={this.state.companyServices} />
             </div>

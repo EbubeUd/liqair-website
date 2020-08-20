@@ -27,55 +27,48 @@ instance.interceptors.request.use(req => {
 instance.interceptors.response.use((response) => {
 
     // Check for no content status
-    if (response.status === 204) {
-      response.data = {data:{}};
-    }
+    if (response.status === 204) { response.data = {data:{}}; }
     return response;
   },
   async (error) => {
     
     // check if the error error is due to expired token
-    if (error.response && error.response.status === 401 && error.response.data.expiredToken) {
+    if (error.response && error.response.status === 401) {
       try {
         const userDetails = getUserDetails('master');
-        const { user, refreshToken } = userDetails;
-        const { _id, email} = user;
+        const token = userDetails.data.data.jwt.original.access_token;
+        const id = userDetails.data.data.email;
 
         // Refresh token and retry request
-        await axios.post(`${process.env.REACT_APP_API_URL}auth/refresh`,{id:_id, email:email, refreshToken:refreshToken})
+        await axios.post(`${process.env.REACT_APP_API_URL}auth/refresh`,{headers:{Authorization:'Bearer '+token}})
         .then((refreshTokenResponse)=>{
 
           // Send new token to reducer
           storeInstance().dispatch(refreshUserTokenAction(refreshTokenResponse));
 
           // Check if retry limit has been exceeded
-          if(!retryAgain(_id+'_retries',5)){return Promise.reject(error);}
+          if(!retryAgain(id+'_retries',5)){return Promise.reject(error);}
 
           // Retry the failed request with returned token
-          instance.request({
-            ...error.config,
-            headers: {
+          instance.request({...error.config, headers: {
               ...error.config.headers,
-              Authorization: 'Bearer '+refreshTokenResponse.data.data.token,
+              Authorization: 'Bearer '+refreshTokenResponse.data.data.original.access_token,
             },
           })
           .then((newResponse)=>{
+
+            // Check for no content status
+            if (newResponse.status === 204) { newResponse.data = {data:{}}; }
             return newResponse;
 
-          }).catch((error) => {
-            return Promise.reject(error);
+          }).catch((error) => { return Promise.reject(error); });
 
-          });
-
-        }).catch((error)=>{
-          return Promise.reject(error);
-        });
+        }).catch((error)=>{return Promise.reject(error);});
 
       } catch (err) {
 
         // Logout user
         storeInstance().dispatch(logoutUserAction());
-
         return Promise.reject(error);
       }
     }

@@ -68,6 +68,7 @@ export class ContactCompany extends Component {
 
             const data = this.state;
             delete data.validationFeedback;
+            if(!data.phone){delete data.phone}
             this.props.messageContentStoreAction(data);
         }
     }

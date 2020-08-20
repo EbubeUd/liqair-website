@@ -23,6 +23,7 @@ export const videoContentStoreAction = (payLoad) => {
         Axios.post(`content/video/store`,payLoad)
         .then(data => {
             dispatch({type: VIDEO_CONTENT_STORE,payLoad: data});
+            dispatch(videoContentIndexAction());
         })
         .catch((error) => {
             handler(error);
@@ -49,6 +50,7 @@ export const videoContentUpdateAction = (payLoad) => {
         Axios.post(`content/video/update`,payLoad)
         .then(data => {
             dispatch({type: VIDEO_CONTENT_UPDATE,payLoad: data});
+            dispatch(videoContentIndexAction());
         })
         .catch((error) => {
             handler(error);
@@ -62,6 +64,7 @@ export const videoContentDeleteAction = (payLoad) => {
         Axios.post(`content/video/delete`,payLoad)
         .then(data => {
             dispatch({type: VIDEO_CONTENT_DELETE,payLoad: data});
+            dispatch(videoContentIndexAction());
         })
         .catch((error) => {
             handler(error);

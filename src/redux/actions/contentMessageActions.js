@@ -49,6 +49,7 @@ export const messageContentUpdateAction = (payLoad) => {
         Axios.post(`content/message/update`,payLoad)
         .then(data => {
             dispatch({type: MESSAGE_CONTENT_UPDATE,payLoad: data});
+            dispatch(messageContentIndexAction());
         })
         .catch((error) => {
             handler(error);
@@ -62,6 +63,7 @@ export const messageContentDeleteAction = (payLoad) => {
         Axios.post(`content/message/delete`,payLoad)
         .then(data => {
             dispatch({type: MESSAGE_CONTENT_DELETE,payLoad: data});
+            dispatch(messageContentIndexAction());
         })
         .catch((error) => {
             handler(error);

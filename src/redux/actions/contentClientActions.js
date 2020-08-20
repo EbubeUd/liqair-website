@@ -23,6 +23,7 @@ export const clientContentStoreAction = (payLoad) => {
         Axios.post(`content/client/store`,payLoad)
         .then(data => {
             dispatch({type: CLIENT_CONTENT_STORE,payLoad: data});
+            dispatch(clientContentIndexAction());
         })
         .catch((error) => {
             handler(error);
@@ -49,6 +50,7 @@ export const clientContentUpdateAction = (payLoad) => {
         Axios.post(`content/client/update`,payLoad)
         .then(data => {
             dispatch({type: CLIENT_CONTENT_UPDATE,payLoad: data});
+            dispatch(clientContentIndexAction());
         })
         .catch((error) => {
             handler(error);
@@ -62,6 +64,7 @@ export const clientContentDeleteAction = (payLoad) => {
         Axios.post(`content/client/delete`,payLoad)
         .then(data => {
             dispatch({type: CLIENT_CONTENT_DELETE,payLoad: data});
+            dispatch(clientContentIndexAction());
         })
         .catch((error) => {
             handler(error);

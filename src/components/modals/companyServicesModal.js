@@ -8,7 +8,7 @@ export class CompanyServicesModal extends Component {
     constructor(props){
         super(props);
         this.state = {
-            username:'',
+            name:'',
             email:'',
             phone:'',
             message:'',
@@ -21,7 +21,7 @@ export class CompanyServicesModal extends Component {
                 broadcast_design:false,
             },
             validationFeedback:{
-                username:'',
+                name:'',
                 email:'',
                 phone:'',
                 message:'',
@@ -40,14 +40,14 @@ export class CompanyServicesModal extends Component {
     }
 
     validateForm = (inputs) => {
-        const {username, email, message} = inputs;
+        const {name, email, message} = inputs;
         let errors = [];
-        let feedback = {username:'', email:'', phone:'', message:''};
+        let feedback = {name:'', email:'', phone:'', message:''};
 
-        if (!username || username.length < 3) {
+        if (!name || name.length < 3) {
             errors.push({id:Math.random(), alertType:'warning', alertMessage:'A name is required'});
-            feedback.username = 'is-invalid';
-        } else {feedback.username = 'is-valid';}
+            feedback.name = 'is-invalid';
+        } else {feedback.name = 'is-valid';}
 
         if (!email) {
             errors.push({id:Math.random(), alertType:'warning', alertMessage:'An email address is required'});
@@ -76,7 +76,9 @@ export class CompanyServicesModal extends Component {
             const data = this.state;
             delete data.companyServices;
             delete data.validationFeedback;
-            this.props.messageContentStoreAction({...data,...this.state.companyServices});
+            if(!data.phone){delete data.phone}
+            this.props.messageContentStoreAction({...data,type:'services',...this.state.companyServices});
+            document.getElementsByClassName('btn-liqair-modal-close')[0].click();
         }
     }
 
@@ -97,8 +99,8 @@ export class CompanyServicesModal extends Component {
                                 <div className="row">
                                     <div className="col-md-6 order-2 order-md-1 mt-md-4">
                                         <div className="col-md-12 mb-2">
-                                            <input type="text" className={'form-control liqair-input'+validationFeedback.username} name="username" placeholder="Name" 
-                                            value={this.state.username} onChange={this.onChange} required />
+                                            <input type="text" className={'form-control liqair-input'+validationFeedback.name} name="name" placeholder="Name" 
+                                            value={this.state.name} onChange={this.onChange} required />
                                         </div>
                                         <div className="col-md-12 mb-2">
                                             <input type="email" className={'form-control liqair-input'+validationFeedback.email} name="email" placeholder="Email Address" 

@@ -28,7 +28,7 @@ export class Alerts extends Component {
             // Display current alert messages in state
             return alerts.map((item,key) => {
                 return (
-                    <div key={key} className={'alert alert-'+item.alertType+' row justify-content-md-between'} role="alert">
+                    <div key={key} className={'alert alert-'+item.alertType+' row justify-content-md-between'} role="alert" style={{zIndex:1040}}>
                         <div> <strong> Heads Up! </strong> {' '+item.alertMessage}</div>
                         <button id={item.id} type="button" onClick={()=>{this.clearAlertAction(item.id)}} style={{backgroundColor:'transparent', border:'none'}}>X</button>
                     </div>

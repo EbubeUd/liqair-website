@@ -1,26 +1,65 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAlertAction } from '../../redux/actions/masterAlertActions';
-import { isEmptyArray } from '../../helpers/helper';
+import { isEmpty, randomString } from '../../helpers/helper';
+import * as clientActions from '../../redux/actions/contentClientActions';
+import DashboardAddModal from '../modals/dashboardAddModal';
+import DashboardEditModal from '../modals/dashboardEditModal';
+import DashboardDeleteModal from '../modals/dashboardDeleteModal';
 
 export class DashboardClient extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            clientItems:[
-                {id:Math.random(5),order:1,name:'client good bot 1',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-                {id:Math.random(5),order:2,name:'client good bot 2',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-                {id:Math.random(5),order:3,name:'client good bot 3',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-                {id:Math.random(5),order:4,name:'client good bot 4',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-            ],
+            clientItems:[],
             clientEditModal:{},
             clientDeleteModal:{}
         }
+        this.addModalRef = React.createRef();
+        this.editModalRef = React.createRef();
+        this.deleteModalRef = React.createRef();
+        this.addModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+        this.editModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+        this.deleteModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+    }
+
+    componentDidMount(){
+        this.props.clientContentIndexAction();
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.client.index !== prevProps.client.index) {
+            this.setState({clientItems:this.props.client.index.data})
+        }
+    }
+
+    openAddModal = () => {
+        this.addModalRef.current.onOpen();
+    }
+
+    openEditModal = () => {
+        this.editModalRef.current.onOpen();
+    }
+
+    openDeleteModal = () => {
+        this.deleteModalRef.current.onOpen();
+    }
+
+    storeClientItem = (data) => {
+        this.props.clientContentStoreAction(data);
+    }
+
+    updateClientItem = (data) => {
+        this.props.clientContentUpdateAction(data);
+    }
+
+    deleteClientItem = (data) => {
+        this.props.clientContentDeleteAction(data);
     }
 
     renderClientItems = (data) => {
-        if (isEmptyArray(data)) {
+        if (isEmpty(data)) {
             return false;
         }
 
@@ -30,14 +69,14 @@ export class DashboardClient extends Component {
                     <tr key={key}>
                         <td>{item.order}</td>
                         <td>{item.name}</td>
-                        <td>{item.createdAt}</td>
+                        <td>{new Date(item.created_at).toLocaleString()}</td>
                         <td>
-                            <button type="button" className="btn btn-info mx-1" onClick={()=>this.setState({clientEditModal:item})} 
-                            data-toggle="modal" data-target="#clientEditModal">Edit</button>
+                            <button type="button" className="btn btn-info mx-1" 
+                            onClick={ ()=>this.setState({clientEditModal:item},this.openEditModal()) }>Edit</button>
                         </td>
                         <td>
-                            <button type="button" className="btn btn-danger mx-1" onClick={()=>this.setState({clientDeleteModal:item})} 
-                            data-toggle="modal" data-target="#clientDeleteModal">Delete</button>
+                            <button type="button" className="btn btn-danger mx-1" 
+                            onClick={ ()=>this.setState({clientDeleteModal:item},this.openDeleteModal()) }>Delete</button>
                         </td>
                     </tr>
                 )
@@ -51,11 +90,11 @@ export class DashboardClient extends Component {
                 {/* Client Settings */}
                 <div className="d-flex align-items-center justify-content-between p-3 my-3 bg-light rounded shadow-sm">
                     <div className="lh-100">
-                        <h6 className="mb-0 text-dark lh-100" id="client">Client</h6>
+                        <h6 className="mb-0 text-dark lh-100" id="clients">Client</h6>
                         <span className="text-dark">List of current client items</span>
                     </div>
                     <div>
-                        <button data-toggle="modal" data-target="#clientAddModal" type="button" className="btn btn-success my-auto">Add</button>
+                        <button onClick={this.openAddModal} type="button" className="btn btn-success my-auto">Add</button>
                     </div>
                 </div>
                 <div className="table-responsive rounded shadow-sm">
@@ -75,50 +114,10 @@ export class DashboardClient extends Component {
                     </table>
                 </div>
 
-                <div className="text-dark">
-                    {/* Large modal */}
-                    <div id="clientAddModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="clientAddModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-md">
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    <h4>Add</h4>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Large modal */}
-                    <div id="clientEditModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="clientEditModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-md">
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    {this.state.clientEditModal.name}
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Small modal */}
-                    <div id="clientDeleteModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="clientDeleteModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-sm">
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    {this.state.clientDeleteModal.name}
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <DashboardAddModal ref={this.addModalRef} id={this.addModalId} onSubmit={(data)=>{this.storeClientItem(data)}} />
+                <DashboardEditModal ref={this.editModalRef} id={this.editModalId} data={this.state.clientEditModal} onSubmit={(data)=>{this.updateClientItem(data)}} />
+                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.clientDeleteModal} onSubmit={(data)=>{this.deleteClientItem(data)}} />
+
             </React.Fragment>
         )
     }
@@ -126,10 +125,12 @@ export class DashboardClient extends Component {
 
 const mapStateToProps = state => ({
     auth: state.master.auth,
+    client: state.content.client
 });
 
 const mapActionToProps = {
     setAlertAction, 
+    ...clientActions
 }
 
 export default connect(mapStateToProps, mapActionToProps)(DashboardClient);
