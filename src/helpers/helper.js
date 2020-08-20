@@ -357,7 +357,30 @@ const isBoolean = (value) => {
     return false
 }
 
+/**
+ * Convert a form input file to base64
+ * @param {file Object} file eg: e.target.files[0]
+ * @param {function} callback 
+ * @return {string}
+ */
+const inputFileToBase64 = (file, callback) => {
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+        callback(reader.result);
+    };
+};
+
+/**
+ * Return the file name form a file path
+ * @param {string} path 
+ * @return {string}
+ */
+const fileNameFromPath = (path) => {
+    return path.split('\\').pop();
+}
+
 export {isEmptyObject, isEmptyArray, ucfirst, randomDate, passwordStrengthMeter, isLetter, isLowerCase, isUpperCase, hasRepeatedLetters, isString,
     isEmptyString, isArray, isObject, isDefined, isEmpty, lcfirst, autoEllipses, isNumeric, isNumber, objectToFormData, isEnv, randomString,
-    isBoolean,
+    isBoolean, inputFileToBase64, fileNameFromPath,
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAlertAction, setMultiAlertAction } from '../../redux/actions/masterAlertActions';
-import {contactCompanyAction} from '../../redux/actions/companyContactAction';
+import {messageContentStoreAction} from '../../redux/actions/contentMessageActions';
 
 export class ContactCompany extends Component {
 
@@ -68,7 +68,7 @@ export class ContactCompany extends Component {
 
             const data = this.state;
             delete data.validationFeedback;
-            this.props.contactCompanyAction(data);
+            this.props.messageContentStoreAction(data);
         }
     }
 
@@ -123,4 +123,4 @@ export class ContactCompany extends Component {
     }
 }
 
-export default connect(null,{setAlertAction, setMultiAlertAction, contactCompanyAction})(ContactCompany);
+export default connect(null,{setAlertAction, setMultiAlertAction, messageContentStoreAction})(ContactCompany);

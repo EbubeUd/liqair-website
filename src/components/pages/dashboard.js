@@ -12,9 +12,7 @@ export class Dashboard extends Component {
 
     constructor(props){
         super(props);
-        this.state={
-           
-        }
+        this.state={}
     }
 
     render() {
@@ -22,7 +20,7 @@ export class Dashboard extends Component {
 
         return (
             <div className="container mt-5 pt-5" style={{minHeight:'100vh'}}>
-                {!isEmptyObject(user)?<Redirect to='/admin/login' />:null}
+                {isEmptyObject(user)?<Redirect to='/admin/login'/>:null}
 
                 <DashboardCarousel />
                 <DashboardVideo />

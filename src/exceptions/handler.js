@@ -21,6 +21,14 @@ const handler = (errorObject) => {
 
             // Send found errors to alert
             storeInstance().dispatch(setMultiAlertAction(...errorList));
+
+        } else if(errorObject.response.data.message){
+            // Request made and server responded with an error
+            console.log('Error Response', errorObject.response);
+
+            // Send found errors to alert
+            storeInstance().dispatch(setAlertAction({id:Math.random(), alertType:'warning', alertMessage:errorObject.response.data.message}));
+
         } else {
             // Request made and server responded with an error
             console.log('Error Response', errorObject.response);

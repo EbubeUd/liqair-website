@@ -25,6 +25,11 @@ instance.interceptors.request.use(req => {
 
 // Add a response interceptor
 instance.interceptors.response.use((response) => {
+
+    // Check for no content status
+    if (response.status === 204) {
+      response.data = {data:{}};
+    }
     return response;
   },
   async (error) => {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {logoutUserAction} from '../../redux/actions/masterAuthActions';
+import { connect } from 'react-redux';
 
 export class PeakNavBar extends Component {
 
@@ -20,7 +22,7 @@ export class PeakNavBar extends Component {
 
     logout = (e) => {
         e.preventDefault();
-        console.log('logged out');
+        this.props.logoutUserAction();
     }
 
     render() {
@@ -60,4 +62,4 @@ export class PeakNavBar extends Component {
     }
 }
 
-export default PeakNavBar;
+export default connect(null,{logoutUserAction})(PeakNavBar);

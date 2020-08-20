@@ -1,26 +1,65 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAlertAction } from '../../redux/actions/masterAlertActions';
-import { isEmptyArray } from '../../helpers/helper';
+import { isEmpty, randomString } from '../../helpers/helper';
+import * as carouselActions from '../../redux/actions/contentCarouselActions';
+import DashboardAddModal from '../modals/dashboardAddModal';
+import DashboardEditModal from '../modals/dashboardEditModal';
+import DashboardDeleteModal from '../modals/dashboardDeleteModal';
 
 export class DashboardCarousel extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            carouselItems:[
-                {id:Math.random(5),order:1,name:'carousel good bot 1',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-                {id:Math.random(5),order:2,name:'carousel good bot 2',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-                {id:Math.random(5),order:3,name:'carousel good bot 3',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-                {id:Math.random(5),order:4,name:'carousel good bot 4',createdAt:'2020-05-27 16:53:07',image:'https://api.unsplash.com/photos/random'},
-            ],
+            carouselItems:[],
             carouselEditModal:{},
             carouselDeleteModal:{}
         }
+        this.addModalRef = React.createRef();
+        this.editModalRef = React.createRef();
+        this.deleteModalRef = React.createRef();
+        this.addModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+        this.editModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+        this.deleteModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+    }
+
+    componentDidMount(){
+        this.props.carouselContentIndexAction();
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.carousel.index !== prevProps.carousel.index) {
+            this.setState({carouselItems:this.props.carousel.index.data})
+        }
+    }
+
+    openAddModal = () => {
+        this.addModalRef.current.onOpen();
+    }
+
+    openEditModal = () => {
+        this.editModalRef.current.onOpen();
+    }
+
+    openDeleteModal = () => {
+        this.deleteModalRef.current.onOpen();
+    }
+
+    storeCarouselItem = (data) => {
+        this.props.carouselContentStoreAction(data);
+    }
+
+    updateCarouselItem = (data) => {
+        this.props.carouselContentUpdateAction(data);
+    }
+
+    deleteCarouselItem = (data) => {
+        this.props.carouselContentDeleteAction(data);
     }
 
     renderCarouselItems = (data) => {
-        if (isEmptyArray(data)) {
+        if (isEmpty(data)) {
             return false;
         }
 
@@ -30,14 +69,14 @@ export class DashboardCarousel extends Component {
                     <tr key={key}>
                         <td>{item.order}</td>
                         <td>{item.name}</td>
-                        <td>{item.createdAt}</td>
+                        <td>{new Date(item.created_at).toLocaleString()}</td>
                         <td>
-                            <button type="button" className="btn btn-info mx-1" onClick={()=>this.setState({carouselEditModal:item})} 
-                            data-toggle="modal" data-target="#carouselEditModal">Edit</button>
+                            <button type="button" className="btn btn-info mx-1" 
+                            onClick={ ()=>this.setState({carouselEditModal:item},this.openEditModal()) }>Edit</button>
                         </td>
                         <td>
-                            <button type="button" className="btn btn-danger mx-1" onClick={()=>this.setState({carouselDeleteModal:item})} 
-                            data-toggle="modal" data-target="#carouselDeleteModal">Delete</button>
+                            <button type="button" className="btn btn-danger mx-1" 
+                            onClick={ ()=>this.setState({carouselDeleteModal:item},this.openDeleteModal()) }>Delete</button>
                         </td>
                     </tr>
                 )
@@ -55,7 +94,7 @@ export class DashboardCarousel extends Component {
                         <span className="text-dark">List of current carousel items</span>
                     </div>
                     <div>
-                        <button data-toggle="modal" data-target="#carouselAddModal" type="button" className="btn btn-success my-auto">Add</button>
+                        <button onClick={this.openAddModal} type="button" className="btn btn-success my-auto">Add</button>
                     </div>
                 </div>
                 <div className="table-responsive rounded shadow-sm">
@@ -75,50 +114,10 @@ export class DashboardCarousel extends Component {
                     </table>
                 </div>
 
-                <div className="text-dark">
-                    {/* Large modal */}
-                    <div id="carouselAddModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="carouselAddModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-md">
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    <h4>Add</h4>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Large modal */}
-                    <div id="carouselEditModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="carouselEditModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-md">
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    {this.state.carouselEditModal.name}
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Small modal */}
-                    <div id="carouselDeleteModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="carouselDeleteModalLabel" aria-hidden="true">
-                        <div className="modal-dialog modal-sm">
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    {this.state.carouselDeleteModal.name}
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <DashboardAddModal ref={this.addModalRef} id={this.addModalId} onSubmit={(data)=>{this.storeCarouselItem(data)}} />
+                <DashboardEditModal ref={this.editModalRef} id={this.editModalId} data={this.state.carouselEditModal} onSubmit={(data)=>{this.updateCarouselItem(data)}} />
+                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.carouselDeleteModal} onSubmit={(data)=>{this.deleteCarouselItem(data)}} />
+
             </React.Fragment>
         )
     }
@@ -126,10 +125,12 @@ export class DashboardCarousel extends Component {
 
 const mapStateToProps = state => ({
     auth: state.master.auth,
+    carousel: state.content.carousel
 });
 
 const mapActionToProps = {
     setAlertAction, 
+    ...carouselActions
 }
 
 export default connect(mapStateToProps, mapActionToProps)(DashboardCarousel);

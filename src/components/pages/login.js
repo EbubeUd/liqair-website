@@ -63,7 +63,7 @@ export class Login extends Component {
         const {user} = this.props.auth
 
         return (
-            <div className="container mt-5 pt-5" style={{height:'100vh'}}>
+            <div className="container mt-5 pt-5" style={{minHeight:'100vh'}}>
                 {isEmptyObject(user)? null: <Redirect to='/admin/dashboard' />}
                 <form onSubmit={this.onSubmit} className="mt-5 col-lg-6 col-md-8 mx-auto">
                     <div className="text-center mb-4">

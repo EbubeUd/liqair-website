@@ -8,10 +8,10 @@ import { Redirect } from 'react-router-dom';
 export class Register extends Component {
 
     state = {
-        firstName:'',
-        lastName:'',
+        name:'',
         email:'',
         password:'',
+        password_confirmation:'',
         redirect:false,
     }
 
@@ -30,11 +30,11 @@ export class Register extends Component {
     }
 
     validateForm = (inputs) => {
-        const {firstName, lastName, email, password} = inputs;
+        const {name, email, password, password_confirmation} = inputs;
         let errors = [];
 
-        if (!firstName || !lastName) {
-            errors.push({id:Math.random(), alertType:'warning', alertMessage:'First name and last name are required'});
+        if (!name) {
+            errors.push({id:Math.random(), alertType:'warning', alertMessage:'A name is required'});
         }
 
         if (!email) {
@@ -43,6 +43,10 @@ export class Register extends Component {
 
         if (!password || passwordStrengthMeter(password)<20) {
             errors.push({id:Math.random(), alertType:'warning', alertMessage:'A password with a higher difficulty is required'});
+        }
+
+        if (password !== password_confirmation ) {
+            errors.push({id:Math.random(), alertType:'warning', alertMessage:'Password confirmation is incorrect'});
         }
 
         if (errors.length === 0) {
@@ -94,7 +98,7 @@ export class Register extends Component {
         const {user} = this.props.auth
 
         return (
-            <div className="container mt-5 pt-5" style={{height:'100vh'}}>
+            <div className="container mt-5 pt-5" style={{minHeight:'100vh'}}>
                 {this.renderRedirectToLogin()}
                 {isEmptyObject(user)? null: <Redirect to='/admin/dashboard' />}
                 <form onSubmit={this.onSubmit} className="mt-5 col-lg-6 col-md-8 mx-auto">
@@ -105,16 +109,16 @@ export class Register extends Component {
                         <a href="/" className="liqair-hover"> Take me back, right now!!</a></p>
                     </div>
                     <div className="form-label-group my-3">
-                        <input type="email" className="form-control liqair-input" placeholder="First Name" name="firstName" value={this.state.firstName} onChange={this.onChange} required autoFocus />
-                    </div>
-                    <div className="form-label-group my-3">
-                        <input type="email" className="form-control liqair-input" placeholder="Last Name" name="lastName" value={this.state.lastName} onChange={this.onChange} required />
+                        <input type="text" className="form-control liqair-input" placeholder="Name" name="name" value={this.state.name} onChange={this.onChange} required autoFocus />
                     </div>
                     <div className="form-label-group my-3">
                         <input type="email" className="form-control liqair-input" placeholder="Email address" name="email" value={this.state.email} onChange={this.onChange} required />
                     </div>
                     <div className="form-label-group my-3">
                         <input type="password" className="form-control liqair-input" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange} required />
+                    </div>
+                    <div className="form-label-group my-3">
+                        <input type="password" className="form-control liqair-input" placeholder="Confirm Password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.onChange} required />
                     </div>
                     <div className="text-muted font-italic"><small>password strength: {this.passwordStrength(this.state.password)} </small></div>
                     <button className="btn btn-lg btn-liqair btn-block my-4" type="submit">Create Account</button>
