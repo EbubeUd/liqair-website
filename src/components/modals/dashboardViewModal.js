@@ -60,7 +60,7 @@ export class DashboardViewModal extends Component {
                                     <div className="col-4 liqair-bg-off-color text-white">Message</div>
                                     <div className="col-8 liqair-bg-off-color text-white"><p>{this.state.message}</p></div>
 
-                                    {!this.state.type==='services'?null:
+                                    {this.state.type!=='services'?null:
                                         <React.Fragment>
                                             <div className="col-4">interest's</div>
                                             <div className="col-8">

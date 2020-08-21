@@ -2,6 +2,7 @@ import { MESSAGE_CONTENT_INDEX, MESSAGE_CONTENT_STORE, MESSAGE_CONTENT_SHOW, MES
     MESSAGE_CONTENT_TEST} from './types';
 import Axios from '../../rclient/masterClient';
 import handler from '../../exceptions/handler';
+import { setAlertAction } from './masterAlertActions';
 
 
 export const messageContentIndexAction = () => {
@@ -23,9 +24,11 @@ export const messageContentStoreAction = (payLoad) => {
         Axios.post(`content/message/store`,payLoad)
         .then(data => {
             dispatch({type: MESSAGE_CONTENT_STORE,payLoad: data});
+            dispatch(setAlertAction({id:Math.random(), alertType:'success', alertMessage:'Message was sent'}));
         })
         .catch((error) => {
             handler(error);
+            dispatch(setAlertAction({id:Math.random(), alertType:'info', alertMessage:'Message was not sent'}));
         });
     }
 }

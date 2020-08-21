@@ -34,10 +34,11 @@ instance.interceptors.response.use((response) => {
     
     // check if the error error is due to expired token
     if (error.response && error.response.status === 401) {
+
       try {
         const userDetails = getUserDetails('master');
-        const token = userDetails.data.data.jwt.original.access_token;
-        const id = userDetails.data.data.email;
+        const token = userDetails.token;
+        const id = userDetails.id;
 
         // Refresh token and retry request
         await axios.post(`${process.env.REACT_APP_API_URL}auth/refresh`,{headers:{Authorization:'Bearer '+token}})
@@ -52,7 +53,7 @@ instance.interceptors.response.use((response) => {
           // Retry the failed request with returned token
           instance.request({...error.config, headers: {
               ...error.config.headers,
-              Authorization: 'Bearer '+refreshTokenResponse.data.data.original.access_token,
+              Authorization: 'Bearer '+refreshTokenResponse.data.data.access_token,
             },
           })
           .then((newResponse)=>{

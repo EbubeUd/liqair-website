@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {isEmpty} from '../../helpers/helper';
+import { connect } from 'react-redux';
+import * as videoActions from '../../redux/actions/contentVideoActions';
 
 export class MediaPlayer extends Component {
 
@@ -9,6 +12,19 @@ export class MediaPlayer extends Component {
                 0:'https://www.youtube.com/embed/MEdUXTeoTRU',
                 1:'https://www.youtube.com/embed/Af-XOuoawHM',
                 2:'https://www.youtube.com/embed/6LCrbfg9QbE',
+            }
+        }
+    }
+
+    componentDidMount(){
+        this.props.videoContentIndexAction();
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.video.index !== prevProps.video.index) {
+            if (!isEmpty(this.props.video.index.data)) {
+                let videoList = this.props.video.index.data.map((item,key)=>{return item.video})
+                !isEmpty(videoList) && this.setState({videoList:videoList});
             }
         }
     }
@@ -26,8 +42,6 @@ export class MediaPlayer extends Component {
 
         currentTrack = currentTrack===undefined?0:currentTrack;
 
-        console.log(document.getElementById("Player"),currentTrack);
-        
         if ((currentTrack+1) <= Object.keys(videoList).length-1) {
             newTrack = currentTrack+1;
         } else {
@@ -73,4 +87,12 @@ export class MediaPlayer extends Component {
     }
 }
 
-export default MediaPlayer;
+const mapStateToProps = state => ({
+    video: state.content.video
+});
+
+const mapActionToProps = {
+    ...videoActions
+}
+
+export default connect(mapStateToProps, mapActionToProps)(MediaPlayer);

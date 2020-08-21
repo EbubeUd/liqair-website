@@ -8,13 +8,13 @@ export class ContactCompany extends Component {
     constructor(props){
         super(props)
         this.state = {
-            username:'',
+            name:'',
             email:'',
             phone:'',
             subject:'',
             message:'',
             validationFeedback:{
-                username:'',
+                name:'',
                 email:'',
                 phone:'',
                 subject:'',
@@ -28,14 +28,14 @@ export class ContactCompany extends Component {
     }
 
     validateForm = (inputs) => {
-        const {username, email, subject, message} = inputs;
+        const {name, email, subject, message} = inputs;
         let errors = [];
-        let feedback = {username:'', email:'', phone:'', message:''};
+        let feedback = {name:'', email:'', phone:'', message:''};
 
-        if (!username || username.length < 3) {
+        if (!name || name.length < 3) {
             errors.push({id:Math.random(), alertType:'warning', alertMessage:'A name is required'});
-            feedback.username = 'is-invalid';
-        } else {feedback.username = 'is-valid';}
+            feedback.name = 'is-invalid';
+        } else {feedback.name = 'is-valid';}
 
         if (!email) {
             errors.push({id:Math.random(), alertType:'warning', alertMessage:'An email address is required'});
@@ -69,7 +69,7 @@ export class ContactCompany extends Component {
             const data = this.state;
             delete data.validationFeedback;
             if(!data.phone){delete data.phone}
-            this.props.messageContentStoreAction(data);
+            this.props.messageContentStoreAction({...data, type:'contact'});
         }
     }
 
@@ -87,8 +87,8 @@ export class ContactCompany extends Component {
                     <div className="row">
                         <div className="col-md-6">
                             <div className="col-md-12 mb-2">
-                                <input type="text" className={'form-control liqair-input'+validationFeedback.username} name="username" placeholder="Name" 
-                                value={this.state.username} onChange={this.onChange} required />
+                                <input type="text" className={'form-control liqair-input'+validationFeedback.name} name="name" placeholder="Name" 
+                                value={this.state.name} onChange={this.onChange} required />
                             </div>
                             <div className="col-md-12 mb-2">
                                 <input type="email" className={'form-control liqair-input'+validationFeedback.email} name="email" placeholder="Email Address" 

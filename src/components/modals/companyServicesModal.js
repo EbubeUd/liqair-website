@@ -73,11 +73,10 @@ export class CompanyServicesModal extends Component {
         e.preventDefault();
         if (this.validateForm(this.state)) {
 
-            const data = this.state;
-            delete data.companyServices;
-            delete data.validationFeedback;
+            const {validationFeedback, companyServices, ...data} = this.state;
             if(!data.phone){delete data.phone}
-            this.props.messageContentStoreAction({...data,type:'services',...this.state.companyServices});
+
+            this.props.messageContentStoreAction({...data, ...companyServices, type:'services'});
             document.getElementsByClassName('btn-liqair-modal-close')[0].click();
         }
     }
@@ -107,7 +106,7 @@ export class CompanyServicesModal extends Component {
                                             value={this.state.email} onChange={this.onChange} required />
                                         </div>
                                         <div className="col-md-12 mb-2">
-                                            <input type="phone" className={'form-control liqair-input'+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
+                                            <input type="tel" className={'form-control liqair-input'+validationFeedback.phone} name="phone" placeholder="Phone (Optional)" 
                                             value={this.state.phone} onChange={this.onChange}/>
                                         </div>
                                         <div className="col-md-12 mb-2">

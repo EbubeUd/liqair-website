@@ -51,6 +51,7 @@ export class DashboardVideo extends Component {
     }
 
     updateVideoItem = (data) => {
+        if (isEmpty(data.portraits)){ delete data.portraits}
         this.props.videoContentUpdateAction(data);
     }
 

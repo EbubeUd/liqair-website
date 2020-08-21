@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import {isEmptyArray} from '../../helpers/helper';
+import {isEmpty} from '../../helpers/helper';
+import { connect } from 'react-redux';
+import * as carouselActions from '../../redux/actions/contentCarouselActions';
 
 export class Carousel extends Component {
 
@@ -7,15 +9,30 @@ export class Carousel extends Component {
         super(props)
         this.state={
             carouselImages:[
-                {image_url:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/youtube_banner.png'},
-                {image_url:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/car_ad.png'},
-                {image_url:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/oma_ad.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/youtube_banner.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/car_ad.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/oma_ad.png'},
             ]
         }
     }
 
+    componentDidMount(){
+        this.props.carouselContentIndexAction();
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.carousel.index !== prevProps.carousel.index) {
+            if (!isEmpty(this.props.carousel.index.data)) {
+                let carouselImages = this.props.carousel.index.data.map((item,key)=>{
+                    return {...item, picture:process.env.REACT_APP_API_PUBLIC_URL+item.picture}
+                })
+                !isEmpty(carouselImages) && this.setState({carouselImages:carouselImages});
+            }
+        }
+    }
+
     renderSlidesIndicator = (data) => {
-        if (isEmptyArray(data)) {
+        if (isEmpty(data)) {
             return false;
         }
 
@@ -29,7 +46,7 @@ export class Carousel extends Component {
     }
 
     renderSlides = (data) => {
-        if (isEmptyArray(data)) {
+        if (isEmpty(data)) {
             return false;
         }
 
@@ -37,7 +54,7 @@ export class Carousel extends Component {
             data.map((item,key)=>{
                 return (
                     <div key={key} className={key===0?"carousel-item  active":"carousel-item"}>
-                        <img className="d-block w-100" src={item.image_url} alt="slide images" />
+                        <img className="d-block w-100" src={item.picture} alt="slide images" />
                     </div>
                 )
             })
@@ -66,4 +83,13 @@ export class Carousel extends Component {
     }
 }
 
-export default Carousel;
+const mapStateToProps = state => ({
+    carousel: state.content.carousel
+});
+
+const mapActionToProps = {
+    ...carouselActions
+}
+
+export default connect(mapStateToProps, mapActionToProps)(Carousel);
+

@@ -20,8 +20,13 @@ export class PeakNavBar extends Component {
         }
     }
 
+    toggleNavbar = () => {
+        document.getElementsByClassName('navbar-toggler')[0].click();
+    }
+
     logout = (e) => {
         e.preventDefault();
+        this.toggleNavbar();
         this.props.logoutUserAction();
     }
 
@@ -38,22 +43,22 @@ export class PeakNavBar extends Component {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul className="navbar-nav mt-2 mt-lg-0">
                         <li className="nav-item d-block d-md-inline-flex">
-                            <a href="/" className="nav-link"><span className="liqair-color">Home</span></a>
+                            <a onClick={this.toggleNavbar} href="/" className="nav-link"><span className="liqair-color">Home</span></a>
                         </li>
                         <li className="nav-item d-block d-md-inline-flex">
-                            <a href="/admin/dashboard#carousel" className="nav-link"><span className="liqair-color">Carousel</span></a>
+                            <a onClick={this.toggleNavbar} href="/admin/dashboard#carousel" className="nav-link"><span className="liqair-color">Carousel</span></a>
                         </li>
                         <li className="nav-item d-block d-md-inline-flex">
-                            <a href="/admin/dashboard#videos" className="nav-link"><span className="liqair-color">Videos</span></a>
+                            <a onClick={this.toggleNavbar} href="/admin/dashboard#videos" className="nav-link"><span className="liqair-color">Videos</span></a>
                         </li>
                         <li className="nav-item d-block d-md-inline-flex">
-                            <a href="/admin/dashboard#clients" className="nav-link"><span className="liqair-color">Clients</span></a>
+                            <a onClick={this.toggleNavbar} href="/admin/dashboard#clients" className="nav-link"><span className="liqair-color">Clients</span></a>
                         </li>
                         <li className="nav-item d-block d-md-inline-flex">
-                            <a href="/admin/dashboard#messages" className="nav-link"><span className="liqair-color">Messages</span></a>
+                            <a onClick={this.toggleNavbar} href="/admin/dashboard#messages" className="nav-link"><span className="liqair-color">Messages</span></a>
                         </li>
                     </ul>
-                    <form onClick={this.logout} className="form-inline my-2 my-lg-0 justify-content-center">
+                    <form onSubmit={this.logout} className="form-inline my-2 my-lg-0 justify-content-center">
                         <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Logout</button>
                     </form>
                 </div>

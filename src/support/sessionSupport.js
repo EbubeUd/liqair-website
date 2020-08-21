@@ -42,7 +42,7 @@ export const updatePersistedLastLogin = (id, payLoad) => {
             ...user.loginDetails.data,
             data:{
               ...user.loginDetails.data.data,
-              token:payLoad.data.data.token
+              token:payLoad.data.data.access_token
             }
           }
         }

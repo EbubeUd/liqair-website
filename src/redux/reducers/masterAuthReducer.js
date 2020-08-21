@@ -14,8 +14,8 @@ export default function (state=initialState, action) {
             return {
                 ...state,
                 user:action.payLoad.data.data,
-                token:action.payLoad.data.data.jwt.original.access_token,
-                tokenExpiresIn:action.payLoad.data.data.jwt.original.expires_in
+                token:action.payLoad.data.data.access_token,
+                tokenExpiresIn:action.payLoad.data.data.expires_in
             }
 
         case MASTER_LOGOUT_USER:
@@ -35,7 +35,7 @@ export default function (state=initialState, action) {
         case MASTER_REFRESHED_TOKEN:
             return {
                 ...state,
-                token:action.payLoad.data.data.original.access_token,
+                token:action.payLoad.data.data.access_token,
             }
 
         default:

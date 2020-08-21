@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import TopNavBar from './topNavBar';
 import PeakNavBar from './peakNavBar';
+import { isEmpty } from '../../helpers/helper';
 
 const RenderNavBar = withRouter((props) => { 
     return props.isAdminPath(props.location.pathname) && props.isAdmin()? <PeakNavBar /> : <TopNavBar />
@@ -15,8 +16,11 @@ export class Navigation extends Component {
     }
 
     isAdmin = () => {
-        // return this.props.auth.user.rank === 'Admin';
-        return true;
+        if (!isEmpty(this.props.auth.user) && this.props.auth.user.roles.includes('owner')) {
+            return true
+        }
+    
+        return false;
     }
 
     render() {
