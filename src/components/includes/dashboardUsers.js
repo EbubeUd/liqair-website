@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAlertAction } from '../../redux/actions/masterAlertActions';
 import { isEmpty, randomString } from '../../helpers/helper';
-import * as usersActions from '../../redux/actions/contentUsersActions';
-import DashboardAddModal from '../modals/dashboardAddModal';
-import DashboardEditModal from '../modals/dashboardEditModal';
+import * as usersActions from '../../redux/actions/userActions';
+import DashboardManageModal from '../modals/dashboardManageModal';
 import DashboardDeleteModal from '../modals/dashboardDeleteModal';
 
 export class DashboardUsers extends Component {
@@ -13,15 +12,17 @@ export class DashboardUsers extends Component {
         super(props);
         this.state={
             usersList:[],
-            usersEditModal:{},
-            usersDeleteModal:{}
+            userManageModal:{},
+            userDeleteModal:{}
         }
         this.deleteModalRef = React.createRef();
+        this.manageModalRef = React.createRef();
         this.deleteModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
+        this.manageModalId = randomString(8,'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
     }
 
     componentDidMount(){
-        this.props.usersContentIndexAction();
+        this.props.userIndexAction();
     }
 
     componentDidUpdate(prevProps){
@@ -34,8 +35,12 @@ export class DashboardUsers extends Component {
         this.deleteModalRef.current.onOpen();
     }
 
+    openManageModal = () => {
+        this.manageModalRef.current.onOpen();
+    }
+
     deleteUsersItem = (data) => {
-        this.props.usersContentDeleteAction(data);
+        this.props.userDeleteAction(data);
     }
 
     renderUsersItems = (data) => {
@@ -47,16 +52,16 @@ export class DashboardUsers extends Component {
             data.map((item,key)=>{
                 return (
                     <tr key={key}>
-                        <td>{item.order}</td>
                         <td>{item.name}</td>
+                        <td>{item.email}</td>
                         <td>{new Date(item.created_at).toLocaleString()}</td>
                         <td>
-                            <button type="button" className="btn btn-info mx-1" 
-                            onClick={ ()=>this.setState({usersEditModal:item},this.openEditModal()) }>Edit</button>
+                            <button type="button" className="btn btn-warning mx-1" 
+                            onClick={ ()=>this.setState({userManageModal:item},this.openManageModal()) }>Edit</button>
                         </td>
                         <td>
                             <button type="button" className="btn btn-danger mx-1" 
-                            onClick={ ()=>this.setState({usersDeleteModal:item},this.openDeleteModal()) }>Delete</button>
+                            onClick={ ()=>this.setState({userDeleteModal:item},this.openDeleteModal()) }>Delete</button>
                         </td>
                     </tr>
                 )
@@ -91,7 +96,8 @@ export class DashboardUsers extends Component {
                     </table>
                 </div>
 
-                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.usersDeleteModal} onSubmit={(data)=>{this.deleteUsersItem(data)}} />
+                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.userDeleteModal} onSubmit={(data)=>{this.userDeleteAction(data)}} />
+                <DashboardManageModal ref={this.manageModalRef} id={this.manageModalId} data={this.state.userManageModal} onSubmit={()=>{}} />
 
             </React.Fragment>
         )
@@ -100,7 +106,7 @@ export class DashboardUsers extends Component {
 
 const mapStateToProps = state => ({
     auth: state.master.auth,
-    users: state.content.users
+    users: state.user.user
 });
 
 const mapActionToProps = {

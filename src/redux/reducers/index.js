@@ -2,10 +2,11 @@ import {combineReducers} from 'redux';
 import masterAuthReducer from './masterAuthReducer';
 import masterAlertReducer from './masterAlertReducer';
 import masterAppStatusReducer from './masterAppStatusReducer';
-import contentCarouselReducer from './contentCarouselReducer'
-import contentClientReducer from './contentClientReducer'
-import contentVideoReducer from './contentVideoReducer'
-import contentMessageReducer from './contentMessageReducer'
+import contentCarouselReducer from './contentCarouselReducer';
+import contentClientReducer from './contentClientReducer';
+import contentVideoReducer from './contentVideoReducer';
+import contentMessageReducer from './contentMessageReducer';
+import userReducer from './userReducer';
 export default combineReducers({
     master:combineReducers({
         auth:masterAuthReducer,
@@ -16,6 +17,9 @@ export default combineReducers({
         carousel:contentCarouselReducer,
         client:contentClientReducer,
         video:contentVideoReducer,
-        message:contentMessageReducer
+        message:contentMessageReducer,
+    }),
+    user:combineReducers({
+        user:userReducer
     })
 });

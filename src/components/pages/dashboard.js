@@ -7,6 +7,7 @@ import DashboardCarousel from '../includes/dashboardCarousel';
 import DashboardVideo from '../includes/dashboardVideo';
 import DashboardClient from '../includes/dashboardClient';
 import DashboardMessage from '../includes/dashboardMessage';
+import DashboardUsers from '../includes/dashboardUsers';
 
 export class Dashboard extends Component {
 
@@ -26,6 +27,7 @@ export class Dashboard extends Component {
                 <DashboardVideo />
                 <DashboardClient />
                 <DashboardMessage />
+                <DashboardUsers />
 
             </div>
         )
