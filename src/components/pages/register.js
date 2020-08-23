@@ -103,7 +103,7 @@ export class Register extends Component {
                 {isEmptyObject(user)? null: <Redirect to='/admin/dashboard' />}
                 <form onSubmit={this.onSubmit} className="mt-5 col-lg-6 col-md-8 mx-auto">
                     <div className="text-center mb-4">
-                        <img className=" img-fluid mb-4" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/icons/liquid.png'} alt="logo" width={72} height={72} />
+                        <img className=" img-fluid mb-4" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liquid.png'} alt="logo" width={72} height={72} />
                         <h1 className="h3 mb-3 font-weight-normal">Liqair Studio</h1>
                         <p>Create an account to access the <code>Admin Panel.</code> What !!!?
                         <a href="/" className="liqair-hover"> Take me back, right now!!</a></p>

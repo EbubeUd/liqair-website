@@ -120,32 +120,32 @@ export class CompanyServicesModal extends Component {
                                             <div className="checkbox-container p-lg-2">
                                                 <div className="text-center p-1">
                                                     <input type="checkbox" id="branding-checkbox" checked={branding} readOnly
-                                                    onClick={()=>this.props.checkCompanyService('branding','assets/img/services/branding.png','assets/img/services/branding_checked.png')} />
+                                                    onClick={()=>this.props.checkCompanyService('branding','/assets/img/services/branding.png','/assets/img/services/branding_checked.png')} />
                                                     <label htmlFor="branding-checkbox">Branding</label>
                                                 </div>
                                                 <div className="text-center p-1">
                                                     <input type="checkbox" id="illustrations-checkbox" checked={illustrations} readOnly
-                                                    onClick={()=>this.props.checkCompanyService('illustrations','assets/img/services/illustrations.png','assets/img/services/illustrations_checked.png')} />
+                                                    onClick={()=>this.props.checkCompanyService('illustrations','/assets/img/services/illustrations.png','/assets/img/services/illustrations_checked.png')} />
                                                     <label htmlFor="illustrations-checkbox">illustrations</label>
                                                 </div>
                                                 <div className="text-center p-1">
                                                     <input type="checkbox" id="video_branding-checkbox" checked={video_branding} readOnly
-                                                    onClick={()=>this.props.checkCompanyService('video_branding','assets/img/services/video_branding.png','assets/img/services/video_branding_checked.png')} />
+                                                    onClick={()=>this.props.checkCompanyService('video_branding','/assets/img/services/video_branding.png','/assets/img/services/video_branding_checked.png')} />
                                                     <label htmlFor="video_branding-checkbox">Video Branding</label>
                                                 </div>
                                                 <div className="text-center p-1">
                                                     <input type="checkbox" id="motion_design-checkbox" checked={motion_design} readOnly
-                                                    onClick={()=>this.props.checkCompanyService('motion_design','assets/img/services/motion_design.png','assets/img/services/motion_design_checked.png')} />
+                                                    onClick={()=>this.props.checkCompanyService('motion_design','/assets/img/services/motion_design.png','/assets/img/services/motion_design_checked.png')} />
                                                     <label htmlFor="motion_design-checkbox">Motion Design</label>
                                                 </div>
                                                 <div className="text-center p-1">
                                                     <input type="checkbox" id="animation-checkbox" checked={animation} readOnly
-                                                    onClick={()=>this.props.checkCompanyService('animation','assets/img/services/animation.png','assets/img/services/animation_checked.png')} />
+                                                    onClick={()=>this.props.checkCompanyService('animation','/assets/img/services/animation.png','/assets/img/services/animation_checked.png')} />
                                                     <label htmlFor="animation-checkbox">Animation</label>
                                                 </div>
                                                 <div className="text-center p-1">
                                                     <input type="checkbox" id="broadcast_design-checkbox" checked={broadcast_design} readOnly
-                                                    onClick={()=>this.props.checkCompanyService('broadcast_design','assets/img/services/broadcast_design.png','assets/img/services/broadcast_design_checked.png')} />
+                                                    onClick={()=>this.props.checkCompanyService('broadcast_design','/assets/img/services/broadcast_design.png','/assets/img/services/broadcast_design_checked.png')} />
                                                     <label htmlFor="broadcast_design-checkbox">Broadcast Design</label>
                                                 </div>
                                             </div>

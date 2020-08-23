@@ -33,7 +33,7 @@ export class ScrollToTop extends Component {
     render() {
         return (
             // <button onClick={()=>this.scrollUp()} id="scrollToTopButton" title="Go to top">Top</button>
-	        <img onClick={()=>this.scrollUp()} id="scrollToTopButton" height={60} width={30}  src={process.env.REACT_APP_PUBLIC_URL+'assets/img/icons/air.png'} alt="Go to top" />
+	        <img onClick={()=>this.scrollUp()} id="scrollToTopButton" height={60} width={30}  src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/air.png'} alt="Go to top" />
         )
     }
 }

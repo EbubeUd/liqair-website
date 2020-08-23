@@ -44,8 +44,8 @@ export class CompanyServices extends Component {
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
                             <div className="d-flex justify-content-center">
-                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('branding','assets/img/services/branding.png','assets/img/services/branding_checked.png') }>
-                                    <img className="img-fluid w-75 h-75" id="branding" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/services/branding.png'} alt="branding" />
+                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('branding','/assets/img/services/branding.png','/assets/img/services/branding_checked.png') }>
+                                    <img className="img-fluid w-75 h-75" id="branding" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/services/branding.png'} alt="branding" />
                                 </div>
                             </div>
                             <h5>Branding</h5>
@@ -55,8 +55,8 @@ export class CompanyServices extends Component {
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
                             <div className="d-flex justify-content-center">
-                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('illustrations','assets/img/services/illustrations.png','assets/img/services/illustrations_checked.png') }>
-                                    <img className="img-fluid w-75 h-75" id="illustrations" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/services/illustrations.png'} alt="illustrations" />
+                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('illustrations','/assets/img/services/illustrations.png','/assets/img/services/illustrations_checked.png') }>
+                                    <img className="img-fluid w-75 h-75" id="illustrations" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/services/illustrations.png'} alt="illustrations" />
                                 </div>
                             </div>
                             <h5>Illustrations / Visualization</h5>
@@ -66,8 +66,8 @@ export class CompanyServices extends Component {
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
                             <div className="d-flex justify-content-center">
-                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('video_branding','assets/img/services/video_branding.png','assets/img/services/video_branding_checked.png') }>
-                                    <img className="img-fluid w-75 h-75" id="video_branding" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/services/video_branding.png'} alt="video branding" />
+                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('video_branding','/assets/img/services/video_branding.png','/assets/img/services/video_branding_checked.png') }>
+                                    <img className="img-fluid w-75 h-75" id="video_branding" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/services/video_branding.png'} alt="video branding" />
                                 </div>
                             </div>
                             <h5>Video Branding</h5>
@@ -77,8 +77,8 @@ export class CompanyServices extends Component {
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
                             <div className="d-flex justify-content-center">
-                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('motion_design','assets/img/services/motion_design.png','assets/img/services/motion_design_checked.png') }>
-                                    <img className="img-fluid w-75 h-75" id="motion_design" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/services/motion_design.png'} alt="motion design" />
+                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('motion_design','/assets/img/services/motion_design.png','/assets/img/services/motion_design_checked.png') }>
+                                    <img className="img-fluid w-75 h-75" id="motion_design" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/services/motion_design.png'} alt="motion design" />
                                 </div>
                             </div>
                             <h5>Motion Design</h5>
@@ -88,8 +88,8 @@ export class CompanyServices extends Component {
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
                             <div className="d-flex justify-content-center">
-                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('animation','assets/img/services/animation.png','assets/img/services/animation_checked.png') }>
-                                    <img className="img-fluid w-75 h-75" id="animation" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/services/animation.png'} alt="animation" />
+                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('animation','/assets/img/services/animation.png','/assets/img/services/animation_checked.png') }>
+                                    <img className="img-fluid w-75 h-75" id="animation" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/services/animation.png'} alt="animation" />
                                 </div>
                             </div>
                             <h5>Animation</h5>
@@ -99,8 +99,8 @@ export class CompanyServices extends Component {
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
                             <div className="d-flex justify-content-center">
-                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('broadcast_design','assets/img/services/broadcast_design.png','assets/img/services/broadcast_design_checked.png') }>
-                                    <img className="img-fluid w-75 h-75" id="broadcast_design" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/services/broadcast_design.png'} alt="broadcast design" />
+                                <div className="w-50 h-50 clickable" onClick={()=>this.checkCompanyService('broadcast_design','/assets/img/services/broadcast_design.png','/assets/img/services/broadcast_design_checked.png') }>
+                                    <img className="img-fluid w-75 h-75" id="broadcast_design" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/services/broadcast_design.png'} alt="broadcast design" />
                                 </div>
                             </div>
                             <h5>Broadcast Design</h5>

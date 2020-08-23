@@ -9,9 +9,9 @@ export class Carousel extends Component {
         super(props)
         this.state={
             carouselImages:[
-                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/youtube_banner.png'},
-                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/car_ad.png'},
-                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/slides/oma_ad.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'/assets/img/slides/youtube_banner.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'/assets/img/slides/car_ad.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'/assets/img/slides/oma_ad.png'},
             ]
         }
     }

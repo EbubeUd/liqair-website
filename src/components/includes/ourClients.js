@@ -11,9 +11,9 @@ export class OurClients extends Component {
         super(props)
         this.state={
             clientImages:[
-                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/clients/oma.png'},
-                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/clients/quiva_games.png'},
-                {picture:process.env.REACT_APP_PUBLIC_URL+'assets/img/clients/ugarsoft.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'/assets/img/clients/oma.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'/assets/img/clients/quiva_games.png'},
+                {picture:process.env.REACT_APP_PUBLIC_URL+'/assets/img/clients/ugarsoft.png'},
             ]
         }
     }

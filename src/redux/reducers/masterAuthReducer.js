@@ -2,7 +2,6 @@ import { MASTER_LOGIN_USER, MASTER_LOGOUT_USER, MASTER_REGISTER_USER, MASTER_REF
 
 const initialState = {
     user: {},
-    refreshToken:'',
     token:'',
     tokenExpiresIn:'',
 }
@@ -22,7 +21,6 @@ export default function (state=initialState, action) {
             return {
                 ...state,
                 user:{},
-                refreshToken:'',
                 token:'',
             }
 

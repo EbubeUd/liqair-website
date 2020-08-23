@@ -14,7 +14,7 @@ function prePageLoader() {
     return (
         <div id="prePageLoader" className="visible">
             <div className="loader-body">
-                <img className="loader-spinner" src={process.env.REACT_APP_PUBLIC_URL+'assets/img/spinners/liqair-loader-small.gif'} alt="Pre Page Loader" />
+                <img className="loader-spinner" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/spinners/liqair-loader-small.gif'} alt="Pre Page Loader" />
             </div>
         </div>
     )
