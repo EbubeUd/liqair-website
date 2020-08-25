@@ -2,8 +2,8 @@ import { MASTER_LOGIN_USER, MASTER_LOGOUT_USER, MASTER_REGISTER_USER, MASTER_REF
 
 const initialState = {
     user: {},
-    refreshToken:'',
     token:'',
+    tokenExpiresIn:'',
 }
 
 export default function (state=initialState, action) {
@@ -12,16 +12,15 @@ export default function (state=initialState, action) {
         case MASTER_LOGIN_USER:
             return {
                 ...state,
-                user:action.payLoad.data.data.user,
-                refreshToken:action.payLoad.data.data.refreshToken,
-                token:action.payLoad.data.data.token,
+                user:action.payLoad.data.data,
+                token:action.payLoad.data.data.access_token,
+                tokenExpiresIn:action.payLoad.data.data.expires_in
             }
 
         case MASTER_LOGOUT_USER:
             return {
                 ...state,
                 user:{},
-                refreshToken:'',
                 token:'',
             }
 
@@ -34,7 +33,7 @@ export default function (state=initialState, action) {
         case MASTER_REFRESHED_TOKEN:
             return {
                 ...state,
-                token:action.payLoad.data.data.token,
+                token:action.payLoad.data.data.access_token,
             }
 
         default:
