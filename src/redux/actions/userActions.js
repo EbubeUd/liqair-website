@@ -7,7 +7,7 @@ import handler from '../../exceptions/handler';
 export const userIndexAction = () => {
     
     return (dispatch) => {
-        Axios.get(`user/index`)
+        Axios.get(`user/index`,{params:{properties:1}})
         .then(data => {
             dispatch({type: USER_INDEX,payLoad: data});
         })
@@ -78,6 +78,34 @@ export const userTestAction = () => {
         Axios.get(`user/test`)
         .then(data => {
             dispatch({type: USER_TEST,payLoad: data});
+        })
+        .catch((error) => {
+            handler(error);
+        });
+    }
+}
+
+export const userBlockAction = (payLoad) => {
+
+    return (dispatch) => {
+        Axios.post(`user/block`,payLoad)
+        .then(data => {
+            dispatch({type: USER_UPDATE,payLoad: data});
+            dispatch(userIndexAction());
+        })
+        .catch((error) => {
+            handler(error);
+        });
+    }
+}
+
+export const userUnblockAction = (payLoad) => {
+
+    return (dispatch) => {
+        Axios.post(`user/unblock`,payLoad)
+        .then(data => {
+            dispatch({type: USER_UPDATE,payLoad: data});
+            dispatch(userIndexAction());
         })
         .catch((error) => {
             handler(error);

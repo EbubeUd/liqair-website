@@ -7,6 +7,7 @@ import contentClientReducer from './contentClientReducer';
 import contentVideoReducer from './contentVideoReducer';
 import contentMessageReducer from './contentMessageReducer';
 import userReducer from './userReducer';
+import roleReducer from './roleReducer';
 export default combineReducers({
     master:combineReducers({
         auth:masterAuthReducer,
@@ -21,5 +22,8 @@ export default combineReducers({
     }),
     user:combineReducers({
         user:userReducer
+    }),
+    role:combineReducers({
+        role:roleReducer
     })
 });

@@ -16,6 +16,15 @@ export const USER_UPDATE = 'USER_UPDATE';
 export const USER_DELETE = 'USER_DELETE';
 export const USER_TEST = 'USER_TEST';
 
+export const ROLE_INDEX = 'ROLE_INDEX';
+export const ROLE_STORE = 'ROLE_STORE';
+export const ROLE_SHOW = 'ROLE_SHOW';
+export const ROLE_UPDATE = 'ROLE_UPDATE';
+export const ROLE_ASSIGN = 'ROLE_ASSIGN';
+export const ROLE_RETRACT = 'ROLE_RETRACT';
+export const ROLE_DELETE = 'ROLE_DELETE';
+export const ROLE_TEST = 'ROLE_TEST';
+
 export const CAROUSEL_CONTENT_INDEX = 'CAROUSEL_CONTENT_INDEX';
 export const CAROUSEL_CONTENT_STORE = 'CAROUSEL_CONTENT_STORE';
 export const CAROUSEL_CONTENT_SHOW = 'CAROUSEL_CONTENT_SHOW';

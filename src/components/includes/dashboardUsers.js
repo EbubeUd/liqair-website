@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAlertAction } from '../../redux/actions/masterAlertActions';
-import { isEmpty, randomString } from '../../helpers/helper';
+import { isEmpty, randomString, keyBy } from '../../helpers/helper';
 import * as usersActions from '../../redux/actions/userActions';
+import * as rolesActions from '../../redux/actions/roleActions';
 import DashboardManageModal from '../modals/dashboardManageModal';
 import DashboardDeleteModal from '../modals/dashboardDeleteModal';
 
@@ -12,6 +13,7 @@ export class DashboardUsers extends Component {
         super(props);
         this.state={
             usersList:[],
+            rolesList:[],
             userManageModal:{},
             userDeleteModal:{}
         }
@@ -23,12 +25,21 @@ export class DashboardUsers extends Component {
 
     componentDidMount(){
         this.props.userIndexAction();
+        this.props.roleIndexAction();
     }
 
     componentDidUpdate(prevProps){
         if (this.props.users.index !== prevProps.users.index) {
             this.setState({usersList:this.props.users.index.data})
         }
+
+        if (this.props.roles.index !== prevProps.roles.index) {
+            this.setState({rolesList:this.props.roles.index.data})
+        }
+    }
+
+    refreshUserIndex = () => {
+        this.props.userIndexAction();
     }
 
     openDeleteModal = () => {
@@ -39,10 +50,23 @@ export class DashboardUsers extends Component {
         this.manageModalRef.current.onOpen();
     }
 
-    deleteUsersItem = (data) => {
-        this.props.userDeleteAction(data);
+    deleteUser = (data) => {
+        this.props.userDeleteAction({user_id:data.id});
     }
 
+    handleAdmin = (data,type) => {
+        let rolesList = keyBy(this.state.rolesList,'name');
+        type==='admin'?
+        this.props.roleAssignAction({user_id:data.id,role_id:rolesList.owner.id},this.refreshUserIndex):
+        this.props.roleRetractAction({user_id:data.id,role_id:rolesList.owner.id},this.refreshUserIndex);
+        this.manageModalRef.current.onClose();
+    }
+
+    handleStatus = (data,type) => {
+        type==='deactivate'?this.props.userBlockAction({user_id:data.id}):this.props.userUnblockAction({user_id:data.id});
+        this.manageModalRef.current.onClose();
+    }
+ 
     renderUsersItems = (data) => {
         if (isEmpty(data)) {
             return false;
@@ -96,8 +120,9 @@ export class DashboardUsers extends Component {
                     </table>
                 </div>
 
-                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.userDeleteModal} onSubmit={(data)=>{this.userDeleteAction(data)}} />
-                <DashboardManageModal ref={this.manageModalRef} id={this.manageModalId} data={this.state.userManageModal} onSubmit={()=>{}} />
+                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.userDeleteModal} onSubmit={(data)=>{this.deleteUser(data)}} />
+                <DashboardManageModal ref={this.manageModalRef} id={this.manageModalId} data={this.state.userManageModal} 
+                handleAdmin={(data,type)=>{this.handleAdmin(data,type)}} handleStatus={(data,type)=>{this.handleStatus(data,type)}}/>
 
             </React.Fragment>
         )
@@ -106,12 +131,14 @@ export class DashboardUsers extends Component {
 
 const mapStateToProps = state => ({
     auth: state.master.auth,
-    users: state.user.user
+    users: state.user.user,
+    roles: state.role.role,
 });
 
 const mapActionToProps = {
     setAlertAction, 
-    ...usersActions
+    ...usersActions,
+    ...rolesActions
 }
 
 export default connect(mapStateToProps, mapActionToProps)(DashboardUsers);

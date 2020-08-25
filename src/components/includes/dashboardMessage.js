@@ -132,8 +132,8 @@ export class DashboardMessage extends Component {
                                 <th scope="col">Name</th>
                                 <th scope="col">status</th>
                                 <th scope="col">Date Created</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col">&nbsp;&nbsp;Edit</th>
+                                <th scope="col">&nbsp;&nbsp;Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -156,8 +156,8 @@ export class DashboardMessage extends Component {
                                 <th scope="col">Name</th>
                                 <th scope="col">status</th>
                                 <th scope="col">Date Created</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col">&nbsp;&nbsp;Edit</th>
+                                <th scope="col">&nbsp;&nbsp;Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -167,7 +167,7 @@ export class DashboardMessage extends Component {
                 </div>
 
                 <DashboardViewModal ref={this.viewModalRef} id={this.viewModalId} data={this.state.messageViewModal} />
-                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.videoDeleteModal} onSubmit={(data)=>{this.deleteVideoItem(data)}} />
+                <DashboardDeleteModal ref={this.deleteModalRef} id={this.deleteModalId} data={this.state.messageDeleteModal} onSubmit={(data)=>{this.deleteMessageItem(data)}} />
                 
             </React.Fragment>
         )

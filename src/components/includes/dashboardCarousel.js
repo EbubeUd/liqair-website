@@ -104,8 +104,8 @@ export class DashboardCarousel extends Component {
                                 <th scope="col">Order</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Date Created</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
+                                <th scope="col">&nbsp;&nbsp;Edit</th>
+                                <th scope="col">&nbsp;&nbsp;Delete</th>
                             </tr>
                         </thead>
                         <tbody>

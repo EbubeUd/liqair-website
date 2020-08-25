@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { keyBy } from '../../helpers/helper';
 
 export class DashboardManageModal extends Component {
 
@@ -8,6 +9,7 @@ export class DashboardManageModal extends Component {
             id:'',
             name:'',
             email:'',
+            roles:'',
         }
     }
 
@@ -15,16 +17,6 @@ export class DashboardManageModal extends Component {
         if (this.props.data !== prevProps.data) {
             this.setState(this.props.data);
         }
-    }
-
-    onChange = (e) => {
-        this.setState({...this.state, [e.target.name]:e.target.value});
-    }
-
-    onSubmit = (e) => {
-        e.preventDefault();
-        this.onClose();
-        this.props.onSubmit(this.state);
     }
 
     onOpen = (e) => {
@@ -35,33 +27,52 @@ export class DashboardManageModal extends Component {
         document.getElementById(this.props.id+"ModalClose").click();
     }
 
+    handleAdmin = (type) => {
+        this.props.handleAdmin(this.state,type);
+    }
+
+    handleStatus = (type) => {
+        this.props.handleStatus(this.state,type);
+    }
+
     render() {
+        let roles = keyBy(this.state.roles,'name');
         return (
             <div className="text-dark">
                 <button id={this.props.id+'ModalOpen'} type="button" className="d-none" data-toggle="modal" data-target={'#'+this.props.id+'ManageModal'}>Open</button>
 
                 <div id={this.props.id+'ManageModal'} className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="manageModalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-md" role="document">
-                        <form onSubmit={this.onSubmit} className="modal-content">
+                        <div className="modal-content">
                             <div className="modal-body">
-                                <h4>Manage Item</h4>
+                                <h4>Manage User</h4>
                                 <div className="text-center p-4">
-                                    <img src={process.env.REACT_APP_API_PUBLIC_URL+this.state.picture} height={250} width={250} className="img-fluid" alt={this.state.id} loading="lazy" />
+                                    <p>{this.state.name}</p>
+                                    <p>{this.state.email}</p>
+                                    <p>Status: <span className="text-info">{this.state.blocked?'Inactive':'Active'}</span></p>
+                                    <p>Rank: <span className="text-info">{roles.owner?'Admin':'User'}</span></p>
                                 </div>
-                                <div className="form-row">
-                                    <div className="col">
-                                        <input type="text" name="name" className="form-control" placeholder="Name" value={this.state.name} onChange={this.onChange} required/>
+                                <div className="row px-auto">
+                                    <div className="col-6 text-center">
+                                        {this.state.blocked?
+                                            <button onClick={()=>this.handleStatus('activate')} className="btn btn-outline-dark">Activate User Account</button>
+                                        :
+                                            <button onClick={()=>this.handleStatus('deactivate')} className="btn btn-outline-dark">Deactivate User Account</button>
+                                        }
                                     </div>
-                                    <div className="col">
-                                        <input type="text" name="order" className="form-control" placeholder="Order" value={this.state.order} onChange={this.onChange} required/>
+                                    <div className="col-6 text-center">
+                                        {roles.owner?
+                                            <button onClick={()=>this.handleAdmin('user')} className="btn btn-outline-danger">Make Admin A User</button>
+                                        :
+                                            <button onClick={()=>this.handleAdmin('admin')} className="btn btn-outline-danger">Make User An Admin</button>
+                                        }
                                     </div>
                                 </div>
                             </div>
                             <div className="modal-footer">
                                 <button id={this.props.id+'ModalClose'} type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" className="btn btn-primary">Save changes</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
