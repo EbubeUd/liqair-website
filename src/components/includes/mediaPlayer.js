@@ -22,7 +22,7 @@ export class MediaPlayer extends Component {
 
     componentDidUpdate(prevProps){
         if (this.props.video.index !== prevProps.video.index) {
-            if (!isEmpty(this.props.video.index.data)) {
+            if (!isEmpty(this.props.video.index) && !isEmpty(this.props.video.index.data)) {
                 let videoList = this.props.video.index.data.map((item,key)=>{return item.video})
                 !isEmpty(videoList) && this.setState({videoList:videoList});
             }

@@ -31,7 +31,7 @@ const failureResponseHandler = async (error) => {
 
   // No network response (ECONNABORTED)
   if (!error.response || error.code === 'ECONNABORTED'){
-    alert(`Could not connect to network`);
+    // alert(`Could not connect to network`);
     return Promise.reject(error);
   }
 
