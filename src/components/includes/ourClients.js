@@ -24,7 +24,7 @@ export class OurClients extends Component {
 
     componentDidUpdate(prevProps){
         if (this.props.client.index !== prevProps.client.index) {
-            if (!isEmpty(this.props.client.index.data)) {
+            if (!isEmpty(this.props.client.index) && !isEmpty(this.props.client.index.data)) {
                 let clientImages = this.props.client.index.data.map((item,key)=>{
                     return {...item, picture:process.env.REACT_APP_API_PUBLIC_URL+item.picture}
                 })

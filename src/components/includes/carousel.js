@@ -22,7 +22,7 @@ export class Carousel extends Component {
 
     componentDidUpdate(prevProps){
         if (this.props.carousel.index !== prevProps.carousel.index) {
-            if (!isEmpty(this.props.carousel.index.data)) {
+            if (!isEmpty(this.props.carousel.index) && !isEmpty(this.props.carousel.index.data)) {
                 let carouselImages = this.props.carousel.index.data.map((item,key)=>{
                     return {...item, picture:process.env.REACT_APP_API_PUBLIC_URL+item.picture}
                 })
