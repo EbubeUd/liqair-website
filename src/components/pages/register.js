@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { registerUserAction } from '../../redux/actions/masterAuthActions';
-import { setAlertAction } from '../../redux/actions/masterAlertActions';
+import { setAlertAction, setMultiAlertAction } from '../../redux/actions/masterAlertActions';
 import { passwordStrengthMeter, isEmptyObject } from '../../helpers/helper';
 import { Redirect } from 'react-router-dom';
 
@@ -140,4 +140,4 @@ const mapStateToProps = state => ({
     auth: state.master.auth,
 });
 
-export default connect(mapStateToProps, {registerUserAction,setAlertAction})(Register); 
+export default connect(mapStateToProps, {registerUserAction, setAlertAction, setMultiAlertAction})(Register); 
