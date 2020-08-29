@@ -16,7 +16,7 @@ export class Navigation extends Component {
     }
 
     isAdmin = () => {
-        if (!isEmpty(this.props.auth.user) && this.props.auth.user.roles.includes('owner')) {
+        if (!isEmpty(this.props.auth.user) && !isEmpty(this.props.auth.user.roles) && this.props.auth.user.roles.includes('owner')) {
             return true
         }
     

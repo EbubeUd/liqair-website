@@ -13,6 +13,7 @@ import AppStatusModal from '../includes/appStatusModal';
 import ScrollToTop from '../buttons/scrollToTop';
 import Dashboard from '../pages/dashboard';
 import Login from '../pages/login';
+import Logout from '../pages/logout';
 import Register from '../pages/register';
 import ForgotPassword from '../pages/forgotPassword';
 import ResetPassword from '../pages/resetPassword';
@@ -46,6 +47,9 @@ export class App extends Component {
 
             {/* Login page*/}
             <Route exact path="/admin/login" component={Login} />
+
+            {/* Logout page*/}
+            <Route exact path="/admin/logout" component={Logout} />
 
             {/* Register page*/}
             <Route exact path="/admin/register" component={Register} />
