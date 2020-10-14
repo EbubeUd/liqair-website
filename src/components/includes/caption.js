@@ -2,10 +2,11 @@ import React from 'react';
 
 function caption() {
     return (
-        <div className="col my-2 pt-5">
-            <div className="text-center mb-5">
-                <h4>Yo! Nice to meet you</h4>
-                <p>What do we do? Weeeeee maaakee cooool shtuff.</p>
+        <div className="col pt-5 caption-section-1">
+            
+            <div className="text-center mb-5 ">
+                <h4 className="font-snapHand">Yo! Nice to meet you</h4>
+                <p className="font-snapHand">What do we do? Weeeeee maaakee cooool shtuff.</p>
             </div>
             <div className="mx-5">
                 <div className="card-deck mx-5">

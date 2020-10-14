@@ -31,10 +31,10 @@ export class TopNavBar extends Component {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul className="navbar-nav mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <a href="/#home" className="nav-link mx-3"><span className="liqair-color">Home</span></a>
+                            <a href="/#home" className="nav-link mx-3"><span className="liqair-color font-header" >Home</span></a>
                         </li>
                         <li className="nav-item">
-                            <a href="/#works" className="nav-link mx-3"><span className="liqair-color">Works</span></a>
+                            <a href="/#works" className="nav-link mx-3"><span className="liqair-color font-header">Works</span></a>
                         </li>
                         <li className="nav-item">
                             <a href="/" className="d-none d-md-block px-3 mx-5">
@@ -42,10 +42,10 @@ export class TopNavBar extends Component {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a href="/#services" className="nav-link mx-3"><span className="liqair-color">Services</span></a>
+                            <a href="/#services" className="nav-link mx-3"><span className="liqair-color font-header">Services</span></a>
                         </li>
                         <li className="nav-item">
-                            <a href="/#clients" className="nav-link mx-3"><span className="liqair-color">Clients</span></a>
+                            <a href="/#clients" className="nav-link mx-3"><span className="liqair-color font-header">Clients</span></a>
                         </li>
                     </ul>
                 </div>

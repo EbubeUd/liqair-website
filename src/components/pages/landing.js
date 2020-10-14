@@ -19,37 +19,58 @@ export class Landing extends Component {
             <PrePageLoader />
             <div>
                 <Carousel />
+
                 <span id="home"></span>
+                <div style={{backgroundColor: "#2d2d2d"}}>
                 <Caption />
-                <MidBorderTop />
-                    <div className="container text-center">
-                        <h4>Disclaimer</h4>
-                        <h6>This may blow your mind, view at your own risk.</h6>
+                {/* <MidBorderTop /> */}
+                <div className="text-content ">
+                    <div className="container text-center caption-text align-middle">
+                    <h6 className="caption-header">WORKS</h6>
+                        <h6 className="caption-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, </h6>
                     </div>
-                <MidBorderBottom />
+                    </div>
+                {/* <MidBorderBottom bg="#2d2d2d" /> */}
+               </div>
+
+
                 <span id="works"></span>
+                <div style={{backgroundColor: "#2d2d2d"}}>
                 <MediaPlayer />
-                <MidBorderTop />
-                    <div className="container text-center">
-                        <p>Wow, you came this far. You must be one COOL customer. If you would like us to move your business/brand forward,</p>
-                        <p>click the icon of the service(s) you need below to select them, and then click the “Ask us” button to start a conversation with our team.</p>
-                        <p>We hope we can work together.</p>
+                {/* <MidBorderTop /> */}
+                <div className="text-content ">
+                    <div className="container text-center caption-text align-middle">
+                    <h6 className="caption-header">SERVICES</h6>
+                        <h6 className="caption-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, </h6>
                     </div>
-                <MidBorderBottom />
+                 </div>
+                 {/* <MidBorderBottom bg="#2d2d2d" /> */}
+                </div>
+
+
                 <span id="services"></span>
+                <div style={{backgroundColor: "#2d2d2d"}}>
                 <CompanyServices />
-                <MidBorderTop />
-                    <div className="container text-center">
-                        <h4>Affirmation</h4>
-                        <h6>Don't take our word for it, ask our clients.</h6>
+                {/* <MidBorderTop /> */}
+                <div className="text-content ">
+                    <div className="container text-center caption-text align-middle">
+                        <h6 className="caption-header">CLIENTS</h6>
+                        <h6 className="caption-body">Don't take our word for it, ask our clients.</h6>
                     </div>
-                <MidBorderBottom />
+                </div>
+                {/* <MidBorderBottom bg="#2d2d2d" /> */}
+                </div>
+
+
                 <span id="clients"></span>
+
+                <div style={{backgroundColor: "#2d2d2d"}}>
                 <OurClients />
                 <Divider />
                 <ContactCompany />
                 <BorderBottom />
                 <Social />
+                </div>
             </div>
             </React.Fragment>
         )

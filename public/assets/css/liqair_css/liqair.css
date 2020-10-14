@@ -79,7 +79,7 @@
 .liqair-border-image-mid-top{
     height: 15vh;
     width: 100%;
-    background-color: transparent !important;
+    background-color: transparent;
     background-image: url(../../img/borders/mid_border_top.png);
     background-size: cover;
     background-repeat: repeat-x;
@@ -88,7 +88,7 @@
 .liqair-border-image-mid-bottom{
     height: 15vh;
     width: 100%;
-    background-color: transparent !important;
+    background-color: transparent;
     background-image: url(../../img/borders/mid_border_bottom.png);
     background-size: cover;
     background-repeat: repeat-x;
@@ -409,4 +409,66 @@
     background-color: #ffdd17;
     border-radius: 50%;
     display: inline-block;
+}
+
+.caption-section-1
+{
+    background-color: #2d2d2d
+}
+
+.text-content
+{
+    /* background-color: black; */
+    background-image:url(../../img/borders/mid_border_together.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    padding: 2vw 0px;
+  
+}
+
+.caption-text
+{
+
+    margin: auto;
+    left: 10%;
+    margin-top:auto;
+    margin-bottom: auto;
+}
+
+
+@font-face {
+    font-family: hey_october_font;
+    src: url("../../fonts/HeyOctober.ttf");
+  }
+
+  @font-face {
+    font-family: snap_hand_font;
+    src: url("../../fonts/snaphand-v1-free.ttf");
+  }
+
+.caption-header{
+    font-family: hey_october_font;
+    color: #ffdd17;
+    font-size: 3vw;
+    margin-bottom: 0px
+}
+
+.caption-body
+{
+    font-family: snap_hand_font;
+    color: #9e9e9e;
+    font-size: 0.9vw;
+    margin-top: 0px;
+    line-height: 0px;
+}
+
+.font-header
+{
+    font-family: hey_october_font;
+    font-size: 20px
+}
+
+.font-snapHand
+{
+    font-family: snap_hand_font;
 }

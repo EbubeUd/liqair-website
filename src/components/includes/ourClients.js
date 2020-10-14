@@ -53,9 +53,10 @@ export class OurClients extends Component {
 
     render() {
         return (
-            <div className="container my-5">
-                <div className="mb-5 text-center">
-                    <h2>OUR CLIENTS</h2>
+           
+            <div className="container" style={{paddingTop: "40px"}}>
+                <div className=" text-center">
+                    {/* <h2>OUR CLIENTS</h2> */}
                 </div>
                 <Splide 
                     options={{perPage:5, perMove:1, gap:'2rem', pauseOnHover:false, autoplay:true, autoWidth:true, type:'loop', arrows:false, focus:'center', trimSpace:false}}
@@ -63,6 +64,7 @@ export class OurClients extends Component {
                     {this.renderSlides(this.state.clientImages)}
                 </Splide>
             </div>
+         
         )
     }
 }
