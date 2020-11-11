@@ -22,16 +22,16 @@ export class OurClients extends Component {
         this.props.clientContentIndexAction();
     }
 
-    componentDidUpdate(prevProps){
-        if (this.props.client.index !== prevProps.client.index) {
-            if (!isEmpty(this.props.client.index) && !isEmpty(this.props.client.index.data)) {
-                let clientImages = this.props.client.index.data.map((item,key)=>{
-                    return {...item, picture:process.env.REACT_APP_API_PUBLIC_URL+item.picture}
-                })
-                !isEmpty(clientImages) && this.setState({clientImages:clientImages});
-            }
-        }
-    }
+    // componentDidUpdate(prevProps){
+    //     if (this.props.client.index !== prevProps.client.index) {
+    //         if (!isEmpty(this.props.client.index) && !isEmpty(this.props.client.index.data)) {
+    //             let clientImages = this.props.client.index.data.map((item,key)=>{
+    //                 return {...item, picture:process.env.REACT_APP_API_PUBLIC_URL+item.picture}
+    //             })
+    //             !isEmpty(clientImages) && this.setState({clientImages:clientImages});
+    //         }
+    //     }
+    // }
 
     renderSlides = (data) => {
         if (isEmpty(data)) {
@@ -42,7 +42,7 @@ export class OurClients extends Component {
             data.map((item,key)=>{
                 return (
                     <SplideSlide key={key}>
-                        <div className="card justify-content-center bg-transparent border-0 liqair-client-gray-out" style={{width: '9rem'}}>
+                        <div className="card justify-content-center bg-transparent border-0 liqair-client-gray-out" style={{width: '10rem'}}>
                             <img className="card-img-top" src={item.picture} alt={'client '+key} />
                         </div>
                     </SplideSlide>
@@ -54,16 +54,19 @@ export class OurClients extends Component {
     render() {
         return (
            
-            <div className="container" style={{paddingTop: "40px"}}>
-                <div className=" text-center">
-                    {/* <h2>OUR CLIENTS</h2> */}
-                </div>
-                <Splide 
-                    options={{perPage:5, perMove:1, gap:'2rem', pauseOnHover:false, autoplay:true, autoWidth:true, type:'loop', arrows:false, focus:'center', trimSpace:false}}
-                    onMoved={( splide, newIndex ) => {/*console.log('moved', newIndex, splide)*/}}>
-                    {this.renderSlides(this.state.clientImages)}
-                </Splide>
-            </div>
+        <div className="container" style={{padding: "50px 0px"}}>
+            <div className="row">
+           <div className="col-4 col-md-4 text-center">
+          <img src="/assets/img/clients/oma.png" style={{maxWidth: "50%"}} style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}}/>
+           </div>
+           <div className="col-4 col-md-4 text-center">
+          <img src="/assets/img/clients/quiva_games.png" style={{maxWidth: "50%"}} />
+           </div>
+           <div className="col-4 col-md-4 text-center">
+          <img src="/assets/img/clients/ugarsoft.png" style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}} />
+           </div>
+           </div>
+        </div>
          
         )
     }

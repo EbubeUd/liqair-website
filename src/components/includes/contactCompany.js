@@ -77,11 +77,7 @@ export class ContactCompany extends Component {
     render() {
         const {validationFeedback} = this.state;
         return (
-            <div className="container my-5">
-
-                <div className="mb-5 text-center">
-                    <h2>CONTACT US</h2>
-                </div>
+            <div className="container ">
 
                 <form onSubmit={this.onSubmit} className="">
                     <div className="row">

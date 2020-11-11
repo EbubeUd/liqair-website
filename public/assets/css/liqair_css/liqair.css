@@ -68,11 +68,11 @@
 }
 
 .liqair-border-image-top {
-    height: 15vh;
+    height: 14vh;
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/top_border.png);
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-x;
 }
 
@@ -95,11 +95,11 @@
 }
 
 .liqair-border-image-bottom {
-    height: 15vh;
+    height: 14vh;
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/bottom_border.png);
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-x;
 }
 
@@ -419,16 +419,26 @@
 .text-content
 {
     /* background-color: black; */
-    background-image:url(../../img/borders/mid_border_together.png);
+    background-image:url(../../img/borders/mid_border_together_short.png);
     background-repeat: repeat-x;
     background-size: contain;
     padding: 2vw 0px;
-  
+    z-index: 10;
+    position: relative;
+    height: 14vh
+}
+
+.text-content-client
+{
+    /* background-color: black; */
+    background-image:url(../../img/borders/mid_border_together_long.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    padding: 6vw 0px;
 }
 
 .caption-text
 {
-
     margin: auto;
     left: 10%;
     margin-top:auto;
@@ -446,11 +456,21 @@
     src: url("../../fonts/snaphand-v1-free.ttf");
   }
 
+  @font-face {
+    font-family: belmist;
+    src: url("../../fonts/Belmist.ttf");
+  }
+
 .caption-header{
     font-family: hey_october_font;
     color: #ffdd17;
     font-size: 3vw;
     margin-bottom: 0px
+}
+
+.font-belmist
+{
+    font-family: belmist;
 }
 
 .caption-body
@@ -471,4 +491,140 @@
 .font-snapHand
 {
     font-family: snap_hand_font;
+}
+
+.font-october
+{
+    font-family: hey_october_font;
+}
+
+.grid-image
+{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.grid-hover{
+    opacity: 1;
+
+}
+
+.works-grid-img-overlay
+{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.53);
+    width: calc(100% - 20px);
+    
+}
+
+.works-grid
+{
+    cursor: pointer;
+}
+
+
+
+.padding-spacing{
+    padding: 0px 10px !important
+}
+
+.padding-nospacing{
+    padding: 0px !important
+}
+
+.img-grid-main-holder{
+     padding: 10px 20px
+}
+.works-grid-img-holder:hover .grid-hover {
+    opacity: 0.3;
+  }
+  
+  .works-grid-img-holder:hover .works-grid-img-overlay {
+    opacity: 1;
+    
+  }
+
+  .works-grid-img-holder:hover .works-grid-img-overlay .grid-middle-text img
+  {
+    transform: translate(0px, -30%);
+  }
+
+  .works-grid-img-holder:hover .works-grid-img-overlay .grid-middle-text h4
+  {
+    transform: translate(0px, -10%);
+  }
+ 
+  .works-grid-img-holder:hover .works-grid-img-overlay .grid-middle-text p
+  {
+    transform: translate(0px, -70%);
+  }
+ 
+  .works-grid-img-holder:hover .works-grid-img-overlay .grid-middle-text img
+  {
+    transition: transform 0.5s;
+    transition-delay: 0s;
+  }
+
+  .works-grid-img-holder:hover .works-grid-img-overlay .grid-middle-text h4
+  {
+    transition: transform 0.6s;
+    transition-delay: 0.05s;
+  }
+
+  .works-grid-img-holder:hover .works-grid-img-overlay .grid-middle-text p
+  {
+    transition: transform 0.8s;
+    transition-delay: 0.1s;
+  }
+
+  .hover-item:hover .hover-item-overlay
+  {
+    transition: transform 0.8s;
+    transition-delay: 0.1s;
+  }
+
+  .hover-item:hover .hover-item-overlay {
+    opacity: 1;
+  }
+
+  .hidden{
+      display: "hidden"
+  }
+
+
+  .grid-middle-text {
+    color: white;
+    font-size: 16px;
+    margin: auto;
+    position: relative;
+    top: 45%;
+    /* transition: transform 0.5s; */
+  }
+
+  .grid-middle-item
+  {
+    transform: translate(0px, 60%);
+  }
+
+  .grid-middle-item
+  {
+    transition: transform 0.8s;
+  }
+
+
+body{
+    overflow-x: hidden;
 }

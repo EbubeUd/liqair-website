@@ -9,7 +9,7 @@ export class MediaPlayer extends Component {
         super(props);
         this.state = {
             videoList:{
-                0:'https://www.youtube.com/embed/MEdUXTeoTRU',
+                0:'https://player.vimeo.com/video/392476737',
                 1:'https://www.youtube.com/embed/Af-XOuoawHM',
                 2:'https://www.youtube.com/embed/6LCrbfg9QbE',
             }
@@ -18,6 +18,12 @@ export class MediaPlayer extends Component {
 
     componentDidMount(){
         this.props.videoContentIndexAction();
+        let videoLists = {};
+        for(var i = 0; i < this.props.urls.length; i++)
+        {
+            videoLists[i] = this.props.urls[i];
+        }
+        this.setState({videoList: videoLists});
     }
 
     componentDidUpdate(prevProps){
@@ -72,17 +78,10 @@ export class MediaPlayer extends Component {
     }
 
     render() {
+        let controls = this.props.urls.length>1? (<span><span className="carousel-control-prev"  role="button" data-slide="prev" name="prev" value="Prev" onClick={()=>this.prevVideo(this.state.videoList)}><span className="carousel-control-prev-icon" aria-hidden="true" /><span className="sr-only">Previous</span></span><span className="carousel-control-next"  role="button" data-slide="next" name="next" value="Next" onClick={()=>this.nextVideo(this.state.videoList)}><span className="carousel-control-next-icon" aria-hidden="true" /><span className="sr-only">Next</span> </span></span>) : ('');
+        let current_view = this.props.isStatic == true ? (<div className="col" style={this.props.style}><div id="mediaPlayer" style={{border: "0px"}}><iframe id="Player" title="OVPlayer" width="100%" height="100%" src={this.state.videoList[0]} value={0} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></div>{controls}</div>) : (<div className="col"  style={this.props.style}><div id="mediaPlayer" style={{border: "0px"}}><iframe id="Player" title="OVPlayer" width="100%" height="100%" src={this.state.videoList[0]} value={0} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe></div>{controls}</div>);
         return (
-            <div className="col">
-                <div id="mediaPlayer">
-                    <iframe id="Player" title="OVPlayer" width="100%" height="100%" src={this.state.videoList[0]} value={0} frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
-                </div>
-
-				<div className="d-flex justify-content-center mt-2">
-					<input type="button" className="btn btn-liqair mx-2" name="prev" value="Prev" onClick={()=>this.prevVideo(this.state.videoList)} />
-					<input type="button" className="btn btn-liqair mx-2" name="next" value="Next" onClick={()=>this.nextVideo(this.state.videoList)} />
-				</div>
-            </div>
+         current_view
         )
     }
 }

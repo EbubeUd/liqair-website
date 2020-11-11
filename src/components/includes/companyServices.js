@@ -39,7 +39,7 @@ export class CompanyServices extends Component {
 
     render() {
         return (
-            <div className="col-12">
+            <div className="col-12" style={{padding: "50px 0px"}}>
                 <div className="row">
                     <div className="col-lg-4 col-md-6">
                         <div className="text-center tooltip-body">
@@ -108,7 +108,7 @@ export class CompanyServices extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="col-lg-12 col-md-12 my-5 text-center">
+                <div className="col-lg-12 col-md-12 text-center">
                     <span className="btn btn-liqair font-snapHand" data-toggle="modal" data-target="#companyServicesModal">ASK FOR COST!!</span>
                 </div>
                 <CompanyServicesModal checkCompanyService={this.checkCompanyService} companyServices={this.state.companyServices} />

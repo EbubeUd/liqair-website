@@ -18,6 +18,7 @@ import Register from '../pages/register';
 import ForgotPassword from '../pages/forgotPassword';
 import ResetPassword from '../pages/resetPassword';
 import VerifyEmail from '../pages/verifyEmail';
+import ClientPage from '../pages/clientPage';
 
 
 export class App extends Component {
@@ -44,6 +45,9 @@ export class App extends Component {
           <Switch>
             {/* Landing page*/}
             <Route exact path="/" component={Landing} />
+
+              {/* Landing page*/}
+              <Route exact path="/client/:id" component={ClientPage} />
 
             {/* Login page*/}
             <Route exact path="/admin/login" component={Login} />

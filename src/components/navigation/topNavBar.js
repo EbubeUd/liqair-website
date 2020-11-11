@@ -37,6 +37,9 @@ export class TopNavBar extends Component {
                             <a href="/#works" className="nav-link mx-3"><span className="liqair-color font-header">Works</span></a>
                         </li>
                         <li className="nav-item">
+                            <a href="/#works" className="nav-link mx-3"><span className="liqair-color font-header">Careers</span></a>
+                        </li>
+                        <li className="nav-item">
                             <a href="/" className="d-none d-md-block px-3 mx-5">
                                 <img src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                             </a>
@@ -46,6 +49,9 @@ export class TopNavBar extends Component {
                         </li>
                         <li className="nav-item">
                             <a href="/#clients" className="nav-link mx-3"><span className="liqair-color font-header">Clients</span></a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="/#clients" className="nav-link mx-3"><span className="liqair-color font-header">Contacts</span></a>
                         </li>
                     </ul>
                 </div>
