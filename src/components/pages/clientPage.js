@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import Carousel from '../includes/carousel';
-import Caption from '../includes/caption';
-import MidBorderTop from '../includes/midBorderTop';
-import MidBorderBottom from '../includes/midBorderBottom';
-import MediaPlayer from '../includes/mediaPlayer';
-import CompanyServices from '../includes/companyServices';
-import OurClients from '../includes/ourClients';
-import ContactCompany from '../includes/contactCompany';
+
 import BorderBottom from '../includes/borderBottom';
 import Social from '../includes/social';
-import Divider from '../includes/divider';
 import PrePageLoader from '../loaders/prePageLoader';
 import WorksGrid from '../includes/worksGrid';
 
@@ -80,7 +73,6 @@ export class ClientPage extends Component {
 
         if(!this.state.clients.hasOwnProperty(client_key))
         {
-            console.log("open this shit")
             window.open("/");
             return [];
         }else{
@@ -94,7 +86,6 @@ export class ClientPage extends Component {
 
         if(!this.state.clients.hasOwnProperty(client_key))
         {
-            console.log("open this shit")
             window.open("/");
             return "";
         }else{
@@ -107,7 +98,6 @@ export class ClientPage extends Component {
 
         if(!this.state.clients.hasOwnProperty(client_key))
         {
-            console.log("open this shit")
             window.open("/");
             return "";
         }else{
@@ -120,7 +110,6 @@ export class ClientPage extends Component {
         let client_key = this.props.match.params.id;
         if(!this.state.clients.hasOwnProperty(client_key))
         {
-            console.log("open this shit")
             window.open("/");
             return "";
         }else{
@@ -133,7 +122,6 @@ export class ClientPage extends Component {
         let client_key = this.props.match.params.id;
         if(!this.state.clients.hasOwnProperty(client_key))
         {
-            console.log("open this shit")
             window.open("/");
             return "";
         }else{

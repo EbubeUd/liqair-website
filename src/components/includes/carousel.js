@@ -53,10 +53,8 @@ export class Carousel extends Component {
         if (isEmpty(data)) {
             return false;
         }
-        let playButtonVisibility = this.props.isClientPage ? "" : "hidden";
         return (
             data.map((item,key)=>{
-                console.log(item)
                 return (
                     <div key={key} className={key===0?"carousel-item  active":"carousel-item" } style={{height: "90vh"}}>
                         <img className="d-block w-100" src={item.picture} alt="slide images" />
@@ -68,7 +66,6 @@ export class Carousel extends Component {
 
     SwitchCarousel = () => 
     {
-        console.log("switche");
         this.fadeOut();
         setTimeout(this.fadeIn, 500);
     }
@@ -109,7 +106,7 @@ export class Carousel extends Component {
          let nav = carouselImages.length > 1 ? (<span><a className="carousel-control-prev" onClick={this.SwitchCarousel} href="#carouselIndicators" role="button" data-slide="prev"><span className="carousel-control-prev-icon" aria-hidden="true" /> <span className="sr-only">Previous</span></a><a className="carousel-control-next" onClick={this.SwitchCarousel} href="#carouselIndicators" role="button" data-slide="next"><span className="carousel-control-next-icon" aria-hidden="true" /> <span className="sr-only">Next</span></a></span>) : false;
          let videoList = this.props.videos ? this.props.videos : [];
          
-         let button = isClientPage ?  (<button id="vidPlayBtn" data-toggle="modal" data-target="#videoDescriptionModal" className={playButtonVisibility} style={{position: "absolute", top: "47%", left: "47%", maxWidth: "8%", background: "transparent", border: "transparent", zIndex: "100", outlineColor: "transparent", outline: "0px"}}><img  data-target="#videoDescriptionModal" data-toggle="modal"  className="hover-item" src="/assets/img/buttons/button.png" style={{maxWidth: "100%"}} /> <img className="hover-item-overlay" /></button>) : ("");
+         let button = isClientPage ?  (<div style={{position: "absolute", left: "50%", top:"50%"}}><button id="vidPlayBtn" data-toggle="modal" data-target="#videoDescriptionModal" className={playButtonVisibility} style={{position: "relative", top: "-50%", left: "-50%", maxWidth: "12vh", background: "transparent", border: "transparent", zIndex: "100", outlineColor: "transparent", outline: "0px"}}><img alt="btn"  data-target="#videoDescriptionModal" data-toggle="modal"  className="hover-item" src="/assets/img/buttons/button.png" style={{maxWidth: "100%"}} alt="Video Description" /> </button></div>) : ("");
         return (
             <div id="carouselIndicators" className="carousel slide pt-0 pt-md-5" data-ride="carousel" style={style}>
                 <ol className="carousel-indicators"  style={style}>
@@ -124,7 +121,7 @@ export class Carousel extends Component {
                 <div id="videoDescriptionModal" className="modal fade" tabIndex={-1} role="dialog" aria-labelledby="gridModalLabel" style={{display: 'none'}} aria-hidden="true">
                 <div className="modal-dialog modal-lg" ></div>)
 
-                <MediaPlayer urls={videoList} style={{top: "20%", left: "20%", width: "60%"}} />
+                <MediaPlayer urls={videoList} style={{top: "20%", width: "80vh", margin: "auto"}} />
             </div>
         </div>
         )

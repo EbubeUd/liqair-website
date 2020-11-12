@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {isEmpty} from '../../helpers/helper';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import { connect } from 'react-redux';
 import * as clientActions from '../../redux/actions/contentClientActions';
@@ -43,7 +43,7 @@ export class OurClients extends Component {
                 return (
                     <SplideSlide key={key}>
                         <div className="card justify-content-center bg-transparent border-0 liqair-client-gray-out" style={{width: '10rem'}}>
-                            <img className="card-img-top" src={item.picture} alt={'client '+key} />
+                            <img alt="card image" className="card-img-top" src={item.picture} alt={'client '+key} />
                         </div>
                     </SplideSlide>
                 )
@@ -57,13 +57,13 @@ export class OurClients extends Component {
         <div className="container" style={{padding: "50px 0px"}}>
             <div className="row">
            <div className="col-4 col-md-4 text-center">
-          <img src="/assets/img/clients/oma.png" style={{maxWidth: "50%"}} style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}}/>
+          <img alt="oma" src="/assets/img/clients/oma.png" style={{maxWidth: "50%"}} style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}}/>
            </div>
            <div className="col-4 col-md-4 text-center">
-          <img src="/assets/img/clients/quiva_games.png" style={{maxWidth: "50%"}} />
+          <img alt="Quiva Games" src="/assets/img/clients/quiva_games.png" style={{maxWidth: "50%"}} />
            </div>
            <div className="col-4 col-md-4 text-center">
-          <img src="/assets/img/clients/ugarsoft.png" style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}} />
+          <img alt="Ugarsoft" src="/assets/img/clients/ugarsoft.png" style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}} />
            </div>
            </div>
         </div>

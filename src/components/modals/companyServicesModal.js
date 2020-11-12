@@ -158,9 +158,9 @@ export class CompanyServicesModal extends Component {
                             <div className="col-12 text-center">
                                 <button type="submit" className="btn btn-liqair">Send Us A Message</button>
                             </div>
-                            <div className="col-12 text-center">
-                                <small className="col">We'll reply as soon as we can.</small>
-                            </div>
+                            <div className="col-12 text-center" style={{marginBottom: "3vh"}}>
+                            <small className="col">We'll reply as soon as we can.</small>
+                        </div>
                         </div>
                     </form>
                 </div>

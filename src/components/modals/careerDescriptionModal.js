@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { setAlertAction, setMultiAlertAction } from '../../redux/actions/masterAlertActions';
-import {messageContentStoreAction} from '../../redux/actions/contentMessageActions';
 
 export class CareerDescriptionModal extends Component {
 

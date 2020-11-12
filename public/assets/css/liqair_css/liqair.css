@@ -72,7 +72,7 @@
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/top_border.png);
-    background-size: contain;
+    background-size: 120vh;
     background-repeat: repeat-x;
 }
 
@@ -99,7 +99,7 @@
     width: 100%;
     background-color: transparent !important;
     background-image: url(../../img/borders/bottom_border.png);
-    background-size: contain;
+    background-size: 120vh;
     background-repeat: repeat-x;
 }
 
@@ -403,6 +403,36 @@
     .sidenav a {font-size: 18px;}
 }
 
+
+@media screen and (max-width: 700) {
+    .works-grid-img-overlay
+    {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.53);
+        width: calc(100% - 20px);
+        
+    }
+
+    
+  .grid-middle-text {
+    color: white;
+    font-size: 16px;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    /* transition: transform 0.5s; */
+  }
+
+}
+
 .dot {
     height: 18px;
     width: 18px;
@@ -421,11 +451,11 @@
     /* background-color: black; */
     background-image:url(../../img/borders/mid_border_together_short.png);
     background-repeat: repeat-x;
-    background-size: contain;
-    padding: 2vw 0px;
+    background-size: 120vh;
     z-index: 10;
     position: relative;
-    height: 14vh
+    height: 14vh;
+
 }
 
 .text-content-client
@@ -464,8 +494,9 @@
 .caption-header{
     font-family: hey_october_font;
     color: #ffdd17;
-    font-size: 3vw;
-    margin-bottom: 0px
+    font-size: 248%;
+    margin-bottom: 0px;
+    padding-top: 4vh
 }
 
 .font-belmist
@@ -477,7 +508,7 @@
 {
     font-family: snap_hand_font;
     color: #9e9e9e;
-    font-size: 0.9vw;
+    font-size: 90%;
     margin-top: 0px;
     line-height: 0px;
 }
@@ -610,7 +641,7 @@
     font-size: 16px;
     margin: auto;
     position: relative;
-    top: 45%;
+    top: 33%;
     /* transition: transform 0.5s; */
   }
 

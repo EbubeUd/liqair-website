@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import Carousel from '../includes/carousel';
-import Caption from '../includes/caption';
-import MidBorderTop from '../includes/midBorderTop';
-import MidBorderBottom from '../includes/midBorderBottom';
+
 import CompanyServices from '../includes/companyServices';
 import OurClients from '../includes/ourClients';
 import ContactCompany from '../includes/contactCompany';
 import BorderBottom from '../includes/borderBottom';
 import Social from '../includes/social';
-import Divider from '../includes/divider';
 import PrePageLoader from '../loaders/prePageLoader';
 import WorksGrid from '../includes/worksGrid';
 import Career from '../includes/career'
@@ -18,21 +15,23 @@ export class Landing extends Component {
         return (
             <React.Fragment>
             <PrePageLoader />
-
+            <span id="home" style={{position: "relative", top: "-15vh"}}></span>
          <div className="video-banner">
          <Carousel />
             <span id="home"></span>
 
 
-
-            <div style={{backgroundColor: "#2d2d2d"}}>
+            <span id="works" style={{position: "relative", top: "-15vh"}}></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="fluid">
                 {/* <Caption /> */}
 
 
                 {/* <MidBorderTop /> */}
+                
                 <div className="text-content" style={{position: "relative", top: "-10px"}}>
                     <div className="container text-center caption-text align-middle">
                     <h6 className="caption-header">WORKS</h6>
+                    
                         <h6 className="caption-body">Disclaimer: This might blow your mind </h6>
                     </div>
                     </div>
@@ -42,15 +41,15 @@ export class Landing extends Component {
            
 
 
-            <div style={{backgroundColor: "#2d2d2d"}}>
-            <span id="works"></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="container-fluid">
+            
             <WorksGrid gridStyle={{"spacing": true, "displayOverlay": true, "view": "clients"}} />
             {/* <MediaPlayer /> */}
             {/* <MidBorderTop /> */}
             </div>
 
-
-            <div style={{backgroundColor: "#2d2d2d"}}>
+            <span id="careers" style={{position: "relative", top: "-15vh"}}></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="fluid">
                 <div className="text-content ">
                     <div className="container text-center caption-text align-middle">
                     <h6 className="caption-header">CAREERS</h6>
@@ -64,13 +63,12 @@ export class Landing extends Component {
 
 
 
-            <div style={{backgroundColor: "#2d2d2d"}}>
-            <span id="careers"></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="container-fluid">
             <Career />
             </div>
 
-
-            <div style={{backgroundColor: "#2d2d2d"}}>
+            <span id="services" style={{position: "relative", top: "-15vh"}}></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="fluid">
             
                 <div className="text-content ">
                 <div className="container text-center caption-text align-middle">
@@ -83,12 +81,14 @@ export class Landing extends Component {
 
 
                 
-            <div style={{backgroundColor: "#2d2d2d"}}>
-            <span id="services"></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="container-fluid">
             <CompanyServices />
             </div>
 
-            <div style={{backgroundColor: "#2d2d2d"}}>
+
+            <span id="clients" style={{position: "relative", top: "-15vh"}}></span>
+
+            <div style={{backgroundColor: "#2d2d2d"}} className="fluid">
             {/* <MidBorderTop /> */}
             <div className="text-content ">
                 <div className="container text-center caption-text align-middle">
@@ -100,12 +100,13 @@ export class Landing extends Component {
             </div>
 
 
-            <div style={{backgroundColor: "#2d2d2d"}}>
+            <div style={{backgroundColor: "#2d2d2d"}} className="container-fluid">
             <span id="clients"></span>
             <OurClients />
             </div>
 
-            <div style={{backgroundColor: "#2d2d2d"}}>
+            <span id="contact" style={{position: "relative", top: "-15vh"}}></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="fluid">
             {/* <MidBorderTop /> */}
             <div className="text-content ">
                 <div className="container text-center caption-text align-middle">
@@ -116,19 +117,18 @@ export class Landing extends Component {
             {/* <MidBorderBottom bg="#2d2d2d" /> */}
             </div>
 
-            <div style={{backgroundColor: "#2d2d2d"}}>
-            <span id="clients"></span>
+            <div style={{backgroundColor: "#2d2d2d"}} className="container-fluid">
             <ContactCompany />
             </div>
 
                 
          
 
-                <div style={{backgroundColor: "black"}}>
+                <div style={{backgroundColor: "black"}} className="fluid">
                 <BorderBottom />
                 </div>
              
-                <div style={{backgroundColor: "black"}}>
+                <div style={{backgroundColor: "black"}} className="container-fluid">
                 <Social />
                 </div>
             </div>
