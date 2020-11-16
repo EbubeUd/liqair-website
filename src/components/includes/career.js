@@ -49,10 +49,15 @@ export class Career extends Component {
             this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/>If you're currently in school, you have to be in final year. <br/>Capability to work independently with minimum supervision.<br/>Must have some prior knowledge of Sound Production.</p>)});
             this.setState({form_url: "https://forms.gle/fzPtVDxcARWKhQsD9"});
             break;
+        case 'ui':
+            this.setState({description : (<p>Learn to make great UI/UX design for games.</p>)});
+            this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/> If you're currently in school, you have to be in final year.<br/> Capability to work independently with minimum supervision.<br/>Must have some prior knowledge of a design software.</p>)});
+            this.setState({form_url: "https://forms.gle/S11eJNc7sZ8TsixC7"});
+            break;
          default:
-            this.setState({description : (<p>Learn to bring your imaginations to life using 2D media.<br/>2D Art/Animation covers:<br/>Concept Drawing,<br/>Storyboarding,<br/>2D Animation, etc.</p>)});
-            this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/> If you're currently in school, you have to be in final year.<br/> Capability to work independently with minimum supervision.</p>)});
-            this.setState({form_url: "https://forms.gle/sXVg9Wbu66hsLMvx6"});
+            this.setState({description : (<p>Learn to make great UI/UX design for games.</p>)});
+            this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/> If you're currently in school, you have to be in final year.<br/> Capability to work independently with minimum supervision.<br/>Must have some prior knowledge of a design software.</p>)});
+            this.setState({form_url: "https://forms.gle/S11eJNc7sZ8TsixC7"});
             break;
     }
   }
@@ -65,7 +70,7 @@ export class Career extends Component {
                     <img src="/assets/img/banners/Internship-design.jpg" alt="Intern Banner" style={{width: '100%', position: 'relative', top: '-10px'}}/>
                         <br></br>
                         <span className="font-snapHand" style={{fontSize: "5vh", color: "#9fa7ab"}}>INTERNSHIP</span>
-                        <p className="text-center font-snapHand" style={{fontSize: "3vh", color: "#9fa7ab"}}>This is your opportunity to work closely, and learn from professionals in the field. Its the shortest route to securing a full-time position</p>
+                        <p className="text-center font-snapHand" style={{fontSize: "3vh", color: "#9fa7ab"}}>This is your opportunity to work closely, and learn from professionals in the field. It's the shortest route to securing a full-time position</p>
                         <br/>
                         <span className="font-snapHand" style={{fontSize: "5vh", color: "#9fa7ab"}}>ROLES</span>
                         <div className="container">
@@ -91,6 +96,12 @@ export class Career extends Component {
                             <div className="col-4 text-left" style={{color: "#ffdd17", fontSize: "3vh"}}> <b className="font-belmist">Sound Production</b></div>
                             <div className="col-4 text-center"><img alt="border" src="/assets/img/borders/line.png" style={{width: "70%"}} /></div>
                             <div className="col-4" > <span  onClick={()=>this.openModal('sound')} className="btn btn-liqair font-october" style={{boxShadow: "-2px 2px 0px white", fontSize: "3vh", paddingBottom: "0px"}} data-toggle="modal" data-target="#careerDescriptionModal">APPLY</span></div>
+                        </div>
+                        <br/>
+                        <div className="row">
+                            <div className="col-4 text-left" style={{color: "#ffdd17", fontSize: "3vh"}}> <b className="font-belmist">UI/UX</b></div>
+                            <div className="col-4 text-center"><img alt="border" src="/assets/img/borders/line.png" style={{width: "70%"}} /></div>
+                            <div className="col-4" > <span  onClick={()=>this.openModal('ui')} className="btn btn-liqair font-october" style={{boxShadow: "-2px 2px 0px white", fontSize: "3vh", paddingBottom: "0px"}} data-toggle="modal" data-target="#careerDescriptionModal">APPLY</span></div>
                         </div>
                         </div>
                     </div>

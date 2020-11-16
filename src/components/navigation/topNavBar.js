@@ -55,53 +55,53 @@ export class TopNavBar extends Component {
     }
 
 
-    componentDidMount(){
-         var instance = this;
-         instance.moveNavLine("home-nav");
+    // componentDidMount(){
+    //      var instance = this;
+    //      instance.moveNavLine("home-nav");
 
 
 
-                // Setup isScrolling variable
-                var isScrolling;
+    //             // Setup isScrolling variable
+    //             var isScrolling;
 
-                // Listen for scroll events
-                window.addEventListener('scroll', function ( event ) {
+    //             // Listen for scroll events
+    //             window.addEventListener('scroll', function ( event ) {
 
-                // Clear our timeout throughout the scroll
-                window.clearTimeout( isScrolling );
+    //             // Clear our timeout throughout the scroll
+    //             window.clearTimeout( isScrolling );
 
-                // Set a timeout to run after scrolling ends
-                isScrolling = setTimeout(function() {
+    //             // Set a timeout to run after scrolling ends
+    //             isScrolling = setTimeout(function() {
 
-                    if ((document.body.scrollTop < 100 && document.body.scrollTop < 100) || (document.documentElement.scrollTop <100  && document.documentElement.scrollTop < 100)) {
-                            instance.moveNavLine("home-nav")
-                    }
+    //                 if ((document.body.scrollTop < 100 && document.body.scrollTop < 100) || (document.documentElement.scrollTop <100  && document.documentElement.scrollTop < 100)) {
+    //                         instance.moveNavLine("home-nav")
+    //                 }
 
-                    if ((document.body.scrollTop > 600 && document.body.scrollTop <2500) || (document.documentElement.scrollTop > 600 && document.documentElement.scrollTop <2500)) {
-                            instance.moveNavLine("works-nav")
-                      }
+    //                 if ((document.body.scrollTop > 700 && document.body.scrollTop <2100) || (document.documentElement.scrollTop > 700 && document.documentElement.scrollTop <2100)) {
+    //                         instance.moveNavLine("works-nav")
+    //                   }
 
-                    if ((document.body.scrollTop > 2500 && document.body.scrollTop < 3800) || (document.documentElement.scrollTop > 2500 && document.documentElement.scrollTop < 3800)) {
-                        instance.moveNavLine("careers-nav")
-                    }
-                    if ((document.body.scrollTop > 3800 && document.body.scrollTop < 4700) || (document.documentElement.scrollTop > 3800 && document.documentElement.scrollTop < 4700)) {
-                        instance.moveNavLine("services-nav")
-                    }
-                    if ((document.body.scrollTop > 4700 && document.body.scrollTop < 5200) || (document.documentElement.scrollTop > 4700 && document.documentElement.scrollTop < 5200)) {
-                        instance.moveNavLine("clients-nav")
-                    }
-                    if ((document.body.scrollTop > 5200 ) || (document.documentElement.scrollTop > 5200)) {
-                        instance.moveNavLine("contacts-nav")
-                    }
+    //                 if ((document.body.scrollTop > 2100 && document.body.scrollTop < 3300) || (document.documentElement.scrollTop > 2100 && document.documentElement.scrollTop < 3300)) {
+    //                     instance.moveNavLine("careers-nav")
+    //                 }
+    //                 if ((document.body.scrollTop > 3300 && document.body.scrollTop < 4100) || (document.documentElement.scrollTop > 3300 && document.documentElement.scrollTop < 4100)) {
+    //                     instance.moveNavLine("services-nav")
+    //                 }
+    //                 if ((document.body.scrollTop > 4100 && document.body.scrollTop < 4600) || (document.documentElement.scrollTop > 4100 && document.documentElement.scrollTop < 4600)) {
+    //                     instance.moveNavLine("clients-nav")
+    //                 }
+    //                 if ((document.body.scrollTop > 4600 ) || (document.documentElement.scrollTop > 4500)) {
+    //                     instance.moveNavLine("contacts-nav")
+    //                 }
 
-                }, 66);
+    //             }, 66);
 
-                }, false);
+    //             }, false);
 
                
 
 
-    }
+    // }
 
 
     render() {
@@ -116,34 +116,33 @@ export class TopNavBar extends Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul className="navbar-nav mt-2 mt-lg-0">
-                        <li className="nav-item">
-                            <a href="/#home" className="nav-link mx-3" onClick={()=>this.setScroll}>
+                        <li className="nav-item" href="#home">
+                            <a href="#" data-scroll="home" className="nav-link mx-3" >
                                 <span className="liqair-color font-header" id="home-nav">Home</span><br/>
-                                <img alt="img" id="nav-line" alt="alt nice" className="d-none d-lg-block" src="/assets/img/pictures/line.png" style={{maxWidth: "7vh", position: "absolute", transition: "all .2s linear"}} />
                                 </a>
                             
                         </li>
-                        <li className="nav-item">
-                            <a href="/#works" className="nav-link mx-3" onClick={()=>this.setScroll} >
+                        <li className="nav-item" href="#works">
+                            <a href="#" className="nav-link mx-3" data-scroll="works" >
                                 <span className="liqair-color font-header" id="works-nav">Works</span>
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#careers" className="nav-link mx-3"><span className="liqair-color font-header" id="careers-nav" onClick={()=>this.setScroll}> Careers</span></a>
+                        <li className="nav-item" href="#careers">
+                            <a href="#" data-scroll="careers" className="nav-link mx-3"><span className="liqair-color font-header" id="careers-nav" > Careers</span></a>
                         </li>
                         <li className="nav-item">
-                            <a href="/" className="d-none d-md-block px-3 mx-5">
+                            <a href="#" data-scroll="home" className="d-none d-md-block px-3 mx-5">
                                 <img alt="img" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#services" className="nav-link mx-3"><span className="liqair-color font-header" id="services-nav" onClick={()=>this.setScroll}>Services</span></a>
+                        <li className="nav-item" href="#services">
+                            <a href="#" data-scroll="services" className="nav-link mx-3"><span className="liqair-color font-header" id="services-nav" >Services</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#clients" className="nav-link mx-3"><span className="liqair-color font-header" id="clients-nav" onClick={()=>this.setScroll}>Clients</span></a>
+                        <li className="nav-item" href="#clients"> 
+                            <a href="#" data-scroll="clients" className="nav-link mx-3"><span className="liqair-color font-header" id="clients-nav" >Clients</span></a>
                         </li>
-                        <li className="nav-item">
-                            <a href="/#contact" className="nav-link mx-3"><span className="liqair-color font-header" id="contacts-nav" onClick={()=>this.setScroll}>Contacts</span></a>
+                        <li className="nav-item" href="#contact">
+                            <a href="#" data-scroll="contact" className="nav-link mx-3"><span className="liqair-color font-header" id="contacts-nav" >Contacts</span></a>
                         </li>
                     </ul>
                 </div>

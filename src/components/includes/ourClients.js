@@ -56,13 +56,11 @@ export class OurClients extends Component {
            
         <div className="container" style={{padding: "50px 0px"}}>
             <div className="row">
-           <div className="col-4 col-md-4 text-center">
+           <div className="col-6 col-md-6 text-center">
           <img alt="oma" src="/assets/img/clients/oma.png" style={{maxWidth: "50%"}} style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}}/>
            </div>
-           <div className="col-4 col-md-4 text-center">
-          <img alt="Quiva Games" src="/assets/img/clients/quiva_games.png" style={{maxWidth: "50%"}} />
-           </div>
-           <div className="col-4 col-md-4 text-center">
+    
+           <div className="col-6 col-md-6 text-center">
           <img alt="Ugarsoft" src="/assets/img/clients/ugarsoft.png" style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}} />
            </div>
            </div>

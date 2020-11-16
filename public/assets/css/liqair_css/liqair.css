@@ -458,6 +458,14 @@
 
 }
 
+.nav-button-active
+{
+    background-image: url(/assets/img/pictures/line.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
 .text-content-client
 {
     /* background-color: black; */

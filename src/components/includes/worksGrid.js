@@ -11,7 +11,7 @@ function worksGrid(props) {
 
 
   let view = gridStyle.view == "clients" ? ( 
-  <div className="fluid img-grid-main-holder" style={imgGridStyle}>
+  <div  className="fluid  img-grid-main-holder"  style={imgGridStyle}>
   <div className="row" style={{ display: "flex", marginBottom: rowMargin }}>
   <div className={"col-md-4 works-grid-img-holder " + worksImgGridStyle} >
     <a href="/client/demo_reel">
@@ -112,7 +112,7 @@ function worksGrid(props) {
 </div>
 ) : (   <div className="fluid img-grid-main-holder" style={imgGridStyle}>
 
-<div className="row" style={{ display: "flex", marginBottom: rowMargin }}>
+<div   className="row" style={{ display: "flex", marginBottom: rowMargin }}>
 <div className={"col-md-6 works-grid-img-holder " + worksImgGridStyle} >
     <img alt="img" src={"/assets/img/clients" + props.imageUrls[0]} className="img-responsive grid-image" />
     <div className={"works-grid-img-overlay h-100" } style={imageOverlayDisplay}>

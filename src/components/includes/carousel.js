@@ -108,7 +108,7 @@ export class Carousel extends Component {
          
          let button = isClientPage ?  (<div style={{position: "absolute", left: "50%", top:"50%"}}><button id="vidPlayBtn" data-toggle="modal" data-target="#videoDescriptionModal" className={playButtonVisibility} style={{position: "relative", top: "-50%", left: "-50%", maxWidth: "12vh", background: "transparent", border: "transparent", zIndex: "100", outlineColor: "transparent", outline: "0px"}}><img alt="btn"  data-target="#videoDescriptionModal" data-toggle="modal"  className="hover-item" src="/assets/img/buttons/button.png" style={{maxWidth: "100%"}} alt="Video Description" /> </button></div>) : ("");
         return (
-            <div id="carouselIndicators" className="carousel slide pt-0 pt-md-5" data-ride="carousel" style={style}>
+            <div id="carouselIndicators"  className="carousel slide pt-0 pt-md-5" data-ride="carousel" style={style}>
                 <ol className="carousel-indicators"  style={style}>
                     {this.renderSlidesIndicator(carouselImages)}
                 </ol>
