@@ -43,7 +43,7 @@ export class OurClients extends Component {
                 return (
                     <SplideSlide key={key}>
                         <div className="card justify-content-center bg-transparent border-0 liqair-client-gray-out" style={{width: '10rem'}}>
-                            <img alt="card image" className="card-img-top" src={item.picture} alt={'client '+key} />
+                            <img className="card-img-top" src={item.picture} alt={'client '+key} />
                         </div>
                     </SplideSlide>
                 )
@@ -57,7 +57,7 @@ export class OurClients extends Component {
         <div className="container" style={{padding: "50px 0px"}}>
             <div className="row">
            <div className="col-6 col-md-6 text-center">
-          <img alt="oma" src="/assets/img/clients/oma.png" style={{maxWidth: "50%"}} style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}}/>
+          <img alt="oma" src="/assets/img/clients/oma.png" style={{maxWidth: "50%", filter: "grayscale(100%) brightness(293%)"}}/>
            </div>
     
            <div className="col-6 col-md-6 text-center">

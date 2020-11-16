@@ -108,11 +108,11 @@ export class TopNavBar extends Component {
         return (
             <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top liqair-border-image-top">
                 <a className="navbar-brand d-block d-md-none" href="/">
-                    <img alt="img" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
+                    <img  src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                 </a>
                 <button onClick={this.unCollapseNav} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     {/* <span className="navbar-toggler-icon" /> */}
-                    <img alt="img" id="navbar-toggler-icon" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/spinners/wave_cool.gif'} width={60} height={25} className="img-fluid" alt="navbar toggler icon" loading="lazy" />
+                    <img  id="navbar-toggler-icon" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/spinners/wave_cool.gif'} width={60} height={25} className="img-fluid" alt="navbar toggler icon" loading="lazy" />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul className="navbar-nav mt-2 mt-lg-0">
@@ -132,7 +132,7 @@ export class TopNavBar extends Component {
                         </li>
                         <li className="nav-item">
                             <a href="#" data-scroll="home" className="d-none d-md-block px-3 mx-5">
-                                <img alt="img" src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
+                                <img  src={process.env.REACT_APP_PUBLIC_URL+'/assets/img/icons/liqair.png'} width={120} height={50} className="img-fluid" alt="logo" loading="lazy" />
                             </a>
                         </li>
                         <li className="nav-item" href="#services">

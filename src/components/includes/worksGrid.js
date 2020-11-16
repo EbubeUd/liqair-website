@@ -10,12 +10,12 @@ function worksGrid(props) {
   let showSecondRow = (props.imageUrls && props.imageUrls.length) > 2 ? 'flex' : 'none';
 
 
-  let view = gridStyle.view == "clients" ? ( 
+  let view = gridStyle.view === "clients" ? ( 
   <div  className="fluid  img-grid-main-holder"  style={imgGridStyle}>
   <div className="row" style={{ display: "flex", marginBottom: rowMargin }}>
   <div className={"col-md-4 works-grid-img-holder " + worksImgGridStyle} >
     <a href="/client/demo_reel">
-      <img src="/assets/img/pictures/demo real.jpg" className="img-responsive grid-image" />
+      <img alt="image" src="/assets/img/pictures/demo real.jpg" className="img-responsive grid-image" />
       <div className={"works-grid-img-overlay h-100" } style={imageOverlayDisplay}>
       <div className="grid-middle-text clickable">
           <img className="grid-middle-item"
@@ -117,7 +117,7 @@ function worksGrid(props) {
     <img alt="img" src={"/assets/img/clients" + props.imageUrls[0]} className="img-responsive grid-image" />
     <div className={"works-grid-img-overlay h-100" } style={imageOverlayDisplay}>
     <div className="grid-middle-text clickable">
-        <img className="grid-middle-item"
+        <img alt="image" className="grid-middle-item"
           src="/assets/img/spinners/liqair-loader-small.gif"
           style={{ margin: "auto", maxWidth: "7%" }}
         />
@@ -174,7 +174,7 @@ function worksGrid(props) {
 
 if(props.imageUrls)
 {
-  if(props.imageUrls.length == 0)
+  if(props.imageUrls.length === 0)
   {
     view = ("");
   }
