@@ -27,6 +27,22 @@
 <script>
   $(document).ready(function () {
     $(document).on("scroll", onScroll);
+
+    $('.navbar-nav li a').on('click', function() {
+
+var scrollAnchor = $(this).attr('data-scroll');
+//var  scrollPoint = $('#'+scrollAnchor).offset().top - 28;
+document.querySelector('#'+scrollAnchor).scrollIntoView({ 
+    behavior: 'smooth' 
+});
+
+// $('body,html').animate({
+//     scrollTop: scrollPoint
+// }, 500);
+
+return window.location.href.includes("client/");
+
+})
   });
 
   function onScroll(event){
@@ -46,23 +62,9 @@
         }
         }
     });
-
-    $('.navbar-nav li a').on('click', function() {
-
-var scrollAnchor = $(this).attr('data-scroll');
-//var  scrollPoint = $('#'+scrollAnchor).offset().top - 28;
-document.querySelector('#'+scrollAnchor).scrollIntoView({ 
-    behavior: 'smooth' 
-});
-
-// $('body,html').animate({
-//     scrollTop: scrollPoint
-// }, 500);
-
-return false;
-
-})
 }
+
+
   </script>
 </script>
   </body>

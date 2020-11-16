@@ -67,15 +67,85 @@
     transform: scale(2) rotate(25deg);
 }
 
-.liqair-border-image-top {
-    height: 14vh;
-    width: 100%;
-    background-color: transparent !important;
-    background-image: url(../../img/borders/top_border.png);
-    background-size: 120vh;
-    background-repeat: repeat-x;
+@media only screen and (min-width: 700px) {
+    .liqair-border-image-top {
+        height: 14vh;
+        width: 100%;
+        background-color: transparent !important;
+        background-image: url(../../img/borders/top_border.png);
+        background-size: 120vh;
+        background-repeat: repeat-x;
+    }
+
+    .text-content {
+        /* background-color: black; */
+        background-image: url(../../img/borders/mid_border_together_short.png);
+        background-repeat: repeat-x;
+        background-size: 120vh;
+        z-index: 10;
+        position: relative;
+        height: 14vh;
+    }
 }
 
+@media only screen and (max-width: 700px) {
+    .liqair-border-image-top{
+        height: 24vh;
+        width: 100%;
+        background-color: transparent !important;
+        background-image: url(../../img/borders/top_border.png);
+        background-size: cover;
+        background-repeat: repeat-x;
+    }
+
+    .text-content {
+        /* background-color: black; */
+        background-image: url(../../img/borders/mid_border_together_short.png);
+        background-repeat: repeat-x;
+        background-size: cover;
+        z-index: 10;
+        position: relative;
+        height: 24vh;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .liqair-border-image-top{
+        height: 30vw;
+        width: 100%;
+        background-color: transparent !important;
+        background-image: url(../../img/borders/top_border.png);
+        background-size: cover;
+        background-repeat: repeat-x;
+    }
+
+    .text-content {
+        /* background-color: black; */
+        background-image: url(../../img/borders/mid_border_together_short.png);
+        background-repeat: repeat-x;
+        background-size: cover;
+        z-index: 10;
+        position: relative;
+        height: 30vw;
+    }
+
+    .carousel-inner
+    {
+        margin-top : 90px
+    }
+
+    .carousel {
+        height: 50vh;
+    }
+
+    .carousel-item {
+        max-height: 50vh
+    }
+
+    .carousel-item img {
+        min-height: 100%
+    }
+}
 .liqair-border-image-mid-top{
     height: 15vh;
     width: 100%;
@@ -421,6 +491,12 @@
         
     }
 
+    .carousel-item{
+        height: 50vh
+    }
+
+
+ 
     
   .grid-middle-text {
     color: white;
@@ -446,17 +522,6 @@
     background-color: #2d2d2d
 }
 
-.text-content
-{
-    /* background-color: black; */
-    background-image:url(../../img/borders/mid_border_together_short.png);
-    background-repeat: repeat-x;
-    background-size: 120vh;
-    z-index: 10;
-    position: relative;
-    height: 14vh;
-
-}
 
 .nav-button-active
 {
@@ -576,17 +641,18 @@
 
 
 
-.padding-spacing{
-    padding: 0px 10px !important
-}
+    .padding-spacing{
+        padding: 0px 10px !important
+    }
 
-.padding-nospacing{
-    padding: 0px !important
-}
+    .padding-nospacing{
+        padding: 0px !important
+    }
 
-.img-grid-main-holder{
-     padding: 10px 20px
-}
+    .img-grid-main-holder{
+        padding: 10px 20px
+    }
+
 .works-grid-img-holder:hover .grid-hover {
     opacity: 0.3;
   }

@@ -26,7 +26,6 @@ export class Career extends Component {
     switch(modal)
     {
         case '2d':
-
             this.setState({description : (<p>Learn to bring your imaginations to life using 2D media.<br/>2D Art/Animation covers:<br/>Concept Drawing,<br/>Storyboarding,<br/>2D Animation, etc.</p>)});
             this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/> If you're currently in school, you have to be in final year.<br/> Capability to work independently with minimum supervision.</p>)});
             this.setState({form_url: "https://forms.gle/sXVg9Wbu66hsLMvx6"});
@@ -54,6 +53,7 @@ export class Career extends Component {
             this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/> If you're currently in school, you have to be in final year.<br/> Capability to work independently with minimum supervision.<br/>Must have some prior knowledge of a design software.</p>)});
             this.setState({form_url: "https://forms.gle/S11eJNc7sZ8TsixC7"});
             break;
+
          default:
             this.setState({description : (<p>Learn to make great UI/UX design for games.</p>)});
             this.setState({requirements : (<p>A Laptop  with at least 2gb RAM and a 3-button mouse. <br/> If you're currently in school, you have to be in final year.<br/> Capability to work independently with minimum supervision.<br/>Must have some prior knowledge of a design software.</p>)});
@@ -70,7 +70,7 @@ export class Career extends Component {
                     <img src="/assets/img/banners/Internship-design.jpg" alt="Intern Banner" style={{width: '100%', position: 'relative', top: '-10px'}}/>
                         <br></br>
                         <span className="font-snapHand" style={{fontSize: "5vh", color: "#9fa7ab"}}>INTERNSHIP</span>
-                        <p className="text-center font-snapHand" style={{fontSize: "3vh", color: "#9fa7ab"}}>This is your opportunity to work closely, and learn from professionals in the field. It's the shortest route to securing a full-time position</p>
+                        <p className="text-center font-snapHand" style={{fontSize: "3vh", color: "#9fa7ab"}}>This is your opportunity to learn from professionals in the field and work closely on Animated works for film and Games. It's the shortest route to securing a full-time position</p>
                         <br/>
                         <span className="font-snapHand" style={{fontSize: "5vh", color: "#9fa7ab"}}>ROLES</span>
                         <div className="container">

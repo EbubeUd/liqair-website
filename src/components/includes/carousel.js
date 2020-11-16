@@ -71,6 +71,8 @@ export class Carousel extends Component {
     }
 
     fadeOut = () => {
+        let isClientPage = this.props.isClientPage;
+        if(!isClientPage) return;
         var element = document.getElementById("vidPlayBtn");
         element.style.opacity = 1;
 
@@ -83,8 +85,11 @@ export class Carousel extends Component {
         })();
     };
 
+
     // ** FADE IN FUNCTION **
     fadeIn = (el, display) => {
+        let isClientPage = this.props.isClientPage;
+        if(!isClientPage) return;
         var element = document.getElementById("vidPlayBtn");
         element.style.opacity = 0;
         element.style.display = display || "block";
@@ -103,10 +108,10 @@ export class Carousel extends Component {
         let style = isClientPage ? {height: "100vh"} : {};
         let playButtonVisibility = isClientPage ? "" : "hidden";
         let carouselImages = isClientPage ? this.props.carouselImages : this.state.carouselImages;
-         let nav = carouselImages.length > 1 ? (<span><a className="carousel-control-prev" onClick={this.SwitchCarousel} href="#carouselIndicators" role="button" data-slide="prev"><span className="carousel-control-prev-icon" aria-hidden="true" /> <span className="sr-only">Previous</span></a><a className="carousel-control-next" onClick={this.SwitchCarousel} href="#carouselIndicators" role="button" data-slide="next"><span className="carousel-control-next-icon" aria-hidden="true" /> <span className="sr-only">Next</span></a></span>) : false;
-         let videoList = this.props.videos ? this.props.videos : [];
-         
-         let button = isClientPage ?  (<div style={{position: "absolute", left: "50%", top:"50%"}}><button id="vidPlayBtn" data-toggle="modal" data-target="#videoDescriptionModal" className={playButtonVisibility} style={{position: "relative", top: "-50%", left: "-50%", maxWidth: "12vh", background: "transparent", border: "transparent", zIndex: "100", outlineColor: "transparent", outline: "0px"}}><img  data-target="#videoDescriptionModal" data-toggle="modal"  className="hover-item" src="/assets/img/buttons/button.png" style={{maxWidth: "100%"}} alt="Video Description" /> </button></div>) : ("");
+        let nav = carouselImages.length > 1 ? (<span><a className="carousel-control-prev" onClick={this.SwitchCarousel} href="#carouselIndicators" role="button" data-slide="prev"><span className="carousel-control-prev-icon" aria-hidden="true" /> <span className="sr-only">Previous</span></a><a className="carousel-control-next" onClick={this.SwitchCarousel} href="#carouselIndicators" role="button" data-slide="next"><span className="carousel-control-next-icon" aria-hidden="true" /> <span className="sr-only">Next</span></a></span>) : false;
+        let videoList = this.props.videos ? this.props.videos : [];
+        let button = isClientPage ?  (<div style={{position: "absolute", left: "50%", top:"50%"}}><button id="vidPlayBtn" data-toggle="modal" data-target="#videoDescriptionModal" className={playButtonVisibility} style={{position: "relative", top: "-50%", left: "-50%", maxWidth: "12vh", background: "transparent", border: "transparent", zIndex: "100", outlineColor: "transparent", outline: "0px"}}><img  data-target="#videoDescriptionModal" data-toggle="modal"  className="hover-item" src="/assets/img/buttons/button.png" style={{maxWidth: "100%"}} alt="Video Description" /> </button></div>) : ("");
+        
         return (
             <div id="carouselIndicators"  className="carousel slide pt-0 pt-md-5" data-ride="carousel" style={style}>
                 <ol className="carousel-indicators"  style={style}>
