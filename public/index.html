@@ -31,14 +31,14 @@
     $('.navbar-nav li a').on('click', function() {
 
 var scrollAnchor = $(this).attr('data-scroll');
-//var  scrollPoint = $('#'+scrollAnchor).offset().top - 28;
-document.querySelector('#'+scrollAnchor).scrollIntoView({ 
-    behavior: 'smooth' 
-});
+var  scrollPoint = $('#'+scrollAnchor).offset().top - 124;
+// document.querySelector('#'+scrollAnchor).offset({top:-60}).scrollIntoView({ 
+//     behavior: 'smooth' 
+// });
 
-// $('body,html').animate({
-//     scrollTop: scrollPoint
-// }, 500);
+$('body,html').animate({
+    scrollTop: scrollPoint
+}, 500);
 
 return window.location.href.includes("client/");
 
@@ -53,7 +53,7 @@ return window.location.href.includes("client/");
         if(refElement.length > 0)
         {
    
-          if (refElement.position().top <= scrollPos+40 && refElement.position().top + refElement.height() -40 > scrollPos) {
+          if (refElement.position().top  <= scrollPos + 125 && refElement.position().top-125 + refElement.height()  > scrollPos) {
             $('.navbar-nav ul li a').removeClass("nav-button-active");
             currLink.addClass("nav-button-active");
         }
